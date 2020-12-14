@@ -1,0 +1,60 @@
+﻿@model IEnumerable<HotelPedia.Models.Hotel>
+
+@{
+    ViewBag.Title = "HotelPedia";
+}
+
+
+<head>
+    <meta charset="UTF-8">
+
+    <link href="~/Content/HotelPedia.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+</head>
+<body>
+    <div class="header">
+        <p id="one"></p>
+
+        <p id="a">
+            <a href="HotelPedia.html">HOME</a>
+            <a href="HotelSearch.html">HOTEL SEARCH</a>
+            <a href="DISCOVER.html">DISCOVER</a>
+            <a href="ABOUT.html">ABOUT</a>
+        </p>
+
+
+
+    </div>
+    <div class="body1">
+        <p id="two">HotelPedia<br>Skopje</p>
+        <p>Find the <br> best hotels <br> in Skopje, <br> Macedonia</p>
+    </div>
+    <div class="slidecontainer">
+        <input type="range" min="1" max="100" class="slider" id="myRange">
+
+        <span id="stars">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star unchecked"></span>
+        </span>
+
+        <input type="button" value="Search" onclick="location.href='@Url.Action("Index", "Hotels")'" />
+        @*<a href="Result.html" class="button">Search</a>*@
+        <br>
+        <span id="dollar">$ $</span>
+
+
+
+    </div>
+
+</body>
+</html>
+

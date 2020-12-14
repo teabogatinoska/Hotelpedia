@@ -1,0 +1,326 @@
+﻿@model IEnumerable<HotelPedia.Models.Hotel>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<head>
+    <meta charset="UTF-8">
+    <link href="~/Content/HotelSearch.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <div class="header">
+        <p id="one"></p>
+
+        <p id="a">
+            <a href="HotelPedia.html">HOME</a>
+            <a href="HotelSearch.html">HOTEL SEARCH</a>
+            <a href="DISCOVER.html">DISCOVER</a>
+            <a href="ABOUT.html">ABOUT</a>
+        </p>
+
+    </div>
+    <div class="body1">
+        <p id="two">HotelPedia<br>Skopje</p>
+
+    </div>
+    <div class="body2">
+        <br>
+        <span id="stars">
+            <span>$ $ $ </span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+        </span>
+        <p id="checkbox">
+            <input type="checkbox" id="breakfast">
+            <label for="breakfast">Breakfast included</label><br>
+            <input type="checkbox" id="parking">
+            <label for="parking">Free parking</label><br>
+            <input type="checkbox" id="cancellation">
+            <label for="cancellation">Free cancellation</label><br>
+            <input type="checkbox" id="wifi">
+            <label for="wifi">Wi-fi</label><br>
+            <input type="checkbox" id="pool">
+            <label for="pool">Swimming pool</label><br>
+            <input type="checkbox" id="smoking">
+            <label for="smoking">No smoking</label><br>
+            <input type="checkbox" id="wheelchair">
+            <label for="wheelchair">Wheelchair accessible</label><br>
+            <input type="checkbox" id="pets">
+            <label for="pets">Pets</label><br>
+            Distance from center<br>
+            <input type="checkbox" id="onekm">
+            <label for="onekm"> < 1km</label>
+            <input type="checkbox" id="twokm">
+            <label for="twokm"> < 2km</label><br>
+            Distance from airport<br>
+            <input type="checkbox" id="airport1">
+            <label for="airport1"> < 25km</label>
+
+        </p>
+
+    </div>
+
+    <div class="body3">
+        <br>
+        <span style="margin-left: 20px; font-size: 15px">Sort by:</span><br>
+        <input type="radio" id="mostS">
+        <label for="mostS">Most stars</label><br>
+        <input type="radio" id="leastS">
+        <label for="leastS">Least stars</label><br>
+        <input type="radio" id="lowestP">
+        <label for="lowestP">Lowest price</label><br>
+        <input type="radio" id="highestP">
+        <label for="highestP">Highest price</label><br>
+        <input type="radio" id="center">
+        <label for="center">Closest to center</label><br>
+        <input type="radio" id="airport2">
+        <label for="airport2">Closest to airport</label><br>
+        <input type="radio" id="a-z">
+        <label for="a-z">A-Z</label><br>
+
+    </div>
+    <div class="marriott">
+        <img src="~/Content/images/Marriott1.jpg" id="marriott" />
+        <p id="M">
+
+            <span id="hotel" style="font-weight: bold">Hotel Marriott</span>
+            <span id="stars1">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            </span><br>
+            <span>0.1 km from center</span><br>
+            <span style="font-style: italic; color: #E0B15E">$$$</span><br><br>
+
+            <span>email: <a href="mailto:info@marriotthotel.com.mk" style="color: dodgerblue; font-weight: bold; font-size:13px">info@marriotthotel.com.mk</a></span><br>
+            <span>phone: <a href="callto:+38923127760" style="color: dodgerblue; font-weight: bold; font-size:13px">+389 2 3127 760</a> </span><br><br>
+            <span>Address: Plostad Makedonija 7</span><br>
+
+            <span style="margin-left:250px"> <a href="https://www.booking.com/hotel/mk/skopje-marriott.en-gb.html?label=gen173nr-1FCAEoggI46AdIM1gEaJMBiAEBmAEJuAEXyAEM2AEB6AEB-AELiAIBqAIDuAKqnLP-BcACAdICJDFhZTUwZTEzLWM2MWEtNGZkMy1hMThjLTM1Mjg2NDQzNThiZNgCBuACAQ;sid=ba20b04e5be2c24cdace5b226ef2cf85;dest_id=-95841;dest_type=city;dist=0;group_adults=3;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=3;req_children=0;room1=A%2CA%2CA;sb_price_type=total;sr_order=popularity;srepoch=1607257651;srpvid=aebb579925ce00bd;type=total;ucfs=1&#hotelTmpl" style="color: #E0B15E; font-weight: bold; font-size:13px; font-style: italic">-> visit on booking.com </a></span>
+
+
+        </p>
+
+
+
+    </div>
+    <div class="hoteli">
+        <div class="kontinental">
+            <img src="~/Content/images/kontitental.jpg" id="kontinental">
+            <p id="K">
+
+                <span id="hotelK" style="font-weight: bold">Hotel Continental</span>
+                <span id="stars2">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                </span><br>
+                <span>2.1 km from center</span><br>
+                <span style="font-style: italic; color: #E0B15E">$$$</span><br><br>
+
+                <span>email: <a href="mailto:info@kontinentalhotel.com.mk" style="color: dodgerblue; font-weight: bold; font-size:13px">info@kontinentalhotel.com.mk</a></span><br>
+                <span>phone: <a href="callto:+38923178445" style="color: dodgerblue; font-weight: bold; font-size:13px">+389 2 3178 445</a> </span><br><br>
+                <span>Address: Aleksandar Makedonski bb</span><br>
+
+                <span style="margin-left:250px"> <a href="https://www.booking.com/hotel/mk/continental.en-gb.html?aid=356980;label=gog235jc-1DCAsokwFCC2NvbnRpbmVudGFsSDNYA2iTAYgBAZgBCbgBF8gBDNgBA-gBAYgCAagCA7gCgNSz_gXAAgHSAiQ2YmRkNWVhNC0wNWIzLTQ5NmYtYmFlMi1hYjgwODEyNTBiM2HYAgTgAgE;sid=ba20b04e5be2c24cdace5b226ef2cf85;dist=0&group_adults=3&group_children=0&keep_landing=1&no_rooms=1&sb_price_type=total&type=total&" style="color: #E0B15E; font-weight: bold; font-size:13px; font-style: italic">-> visit on booking.com</a></span>
+
+            </p>
+
+
+
+        </div>
+
+        <div class="ibis">
+            <img src="~/Content/images/Ibis.jpg" id="ibis">
+            <p id="I">
+
+                <span style="font-weight: bold">Ibis Hotel</span>
+                <span id="stars3">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                </span><br>
+                <span>0.5 km from center</span><br>
+                <span style="font-style: italic; color: #E0B15E">$$</span><br><br>
+
+                <span>email: <a href="mailto:contact@ibiscityskopje.com.mk" style="color: dodgerblue; font-weight: bold; font-size:13px">contact@ibiscityskopje.com.mk</a></span><br>
+                <span>phone: <a href="callto:+38923128742" style="color: dodgerblue; font-weight: bold; font-size:13px">+389 2 3128 742</a> </span><br><br>
+                <span>Address: Orce Nikolov 55</span><br>
+
+                <span style="margin-left: 250px"> <a href="https://www.booking.com/hotel/mk/ibis-skopje-city-center.en-gb.html?aid=356980;label=gog235jc-1DCAsokwFCF2liaXMtc2tvcGplLWNpdHktY2VudGVySDNYA2iTAYgBAZgBCbgBF8gBDNgBA-gBAYgCAagCA7gC5Oez_gXAAgHSAiQwOWUwZmUyNi0xYTUwLTQyMDAtYmQ3ZS04YjI5MTU1OWJmZTLYAgTgAgE;sid=ba20b04e5be2c24cdace5b226ef2cf85;dist=0&group_adults=3&group_children=0&keep_landing=1&no_rooms=1&sb_price_type=total&type=total&" style="color: #E0B15E; font-weight: bold; font-size:13px; font-style: italic">-> visit on booking.com</a></span>
+
+            </p>
+
+        </div>
+    </div>
+
+    <div class="visit">
+        <span style=" font-family: 'Cedarville Cursive', cursive; font-size: 26px">Visit Skopje...</span>
+        <img src="~/Content/images/Zname.png" id="zname"><br>
+        <img src="~/Content/images/Spomenik.jpeg" id="spomenik">
+        <img src="~/Content/images/Most.jpg" id="most"><br>
+        <img src="~/Content/images/Carsija.jpg" id="carsija">
+        <img src="~/Content/images/Kale.jpg" id="kale">
+
+
+
+    </div>
+</body>
+
+
+@*
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name_mk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name_ang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.starsNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.breakfast_included)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.free_cancellation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.swimming_pool)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.parking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wifi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.smoking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.disabled_guest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pets)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.distance_center)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.distance_airport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.street)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.postcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.website)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phone)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name_mk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name_ang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.starsNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.breakfast_included)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.free_cancellation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.swimming_pool)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.parking)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wifi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.smoking)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.disabled_guest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pets)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.distance_center)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.distance_airport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.postcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.website)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>
+        </tr>
+    }
+
+    </table>
+*@

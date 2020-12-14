@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Montserrat:wght@100;700&family=Spartan:wght@800&display=swap');
+
+
+
+.header{
+    background-color: #132540;
+    text-align: center;
+    padding: 10px;
+    height: 80px;
+}
+a{
+    text-decoration: none;
+    color: #F6F6F6;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+    padding: 25px;
+}
+body{
+    margin: 0;
+    background: url("images/body3.jpg") no-repeat center center fixed;
+    background-size: cover;
+
+}
+.checked {
+    color: orange;
+}
+.unchecked{
+    color: gray;
+}
+div.header>#one{
+    background-color: #E0B15E;
+    width: 190px;
+    height: 220px;
+    margin-top: -50px;
+    margin-bottom: -110px;
+    margin-left: 50px;
+}
+div.header>#a{
+    margin-top: -10px;
+    margin-left:40px;
+
+}
+div.body1>#two{
+    font-family: 'Spartan', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    text-align: left;
+    color: #F6F6F6;
+    margin-left: 77px;
+    margin-top: 0px;
+
+
+}
+
+body1{
+    margin:0;
+
+}
+div.body1>p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 56px;
+    color: #F6F6F6;
+    background: transparent;
+    width: 500px;
+    margin-left: 60px;
+    margin-top: 90px;
+
+
+
+
+
+}
+.slidecontainer{
+    background-color: #F6F6F6;
+    width: 600px;
+    height: 150px;
+    border: 8px solid #E0B15E;
+    margin-left: 640px;
+    margin-top: -300px;
+
+}
+
+div.slidecontainer>a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    font-family: 'Spartan', sans-serif;
+    background-color: #ff397e;
+    text-decoration: none;
+    color: #F6F6F6;
+    border-radius: 33px;
+    margin-left: 60px;
+}
+.slider {
+    -webkit-appearance: none;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+
+
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb{
+
+    -webkit-appearance: none;
+    appearance: none;
+    width: 23px;
+    height: 24px;
+    border: 0;
+    background: url('dollar1.jpg');
+    cursor: pointer;
+
+}
+
+div.slidecontainer>#stars{
+    margin-left:60px;
+}
+
+div.slidecontainer>#myRange{
+    margin-left: 60px;
+    margin-top: 70px;
+}
+div.slidecontainer>#dollar{
+    font-family: 'Spartan', sans-serif;
+    color:grey;
+    margin-left: 60px;
+}
