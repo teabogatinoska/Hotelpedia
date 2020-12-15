@@ -147,12 +147,15 @@
     <Content Include="Content\Discover.css" />
     <Content Include="Content\Dollar.png" />
     <Content Include="Content\dollar1.jpg" />
-    <Content Include="Content\HotelPedia.css" />
+    <Content Include="Content\DollarRangeSelect.js" />
+    <Content Include="Content\HomePage.css" />
     <Content Include="Content\HotelSearch.css" />
     <Content Include="Content\images\Arka.jpg" />
+    <Content Include="Content\images\body-bg-marriott.jpg" />
     <Content Include="Content\images\body.jpg" />
     <Content Include="Content\images\body3.jpg" />
     <Content Include="Content\images\Carsija.jpg" />
+    <Content Include="Content\images\dollarsign.png" />
     <Content Include="Content\images\food.jpg" />
     <Content Include="Content\images\holocaust1.jpg" />
     <Content Include="Content\images\holocaust2.jpg" />
@@ -216,7 +219,7 @@
     <Content Include="Views\Hotels\Delete.cshtml" />
     <Content Include="Views\Hotels\Details.cshtml" />
     <Content Include="Views\Hotels\Edit.cshtml" />
-    <Content Include="Views\Hotels\Index.cshtml" />
+    <Content Include="Views\Hotels\HotelSearch.cshtml" />
     <Content Include="Views\Hotels\ABOUT.cshtml" />
     <Content Include="Views\Hotels\Discover.cshtml" />
     <Content Include="Views\Hotels\HotelPedia.cshtml" />

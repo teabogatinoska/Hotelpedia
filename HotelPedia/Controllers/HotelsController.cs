@@ -16,7 +16,7 @@ namespace HotelPedia.Controllers
         private HotelPediaContext db = new HotelPediaContext();
 
         // GET: Hotels
-        public ActionResult Index()
+        public ActionResult HotelSearch()
         {
             return View(db.Hotels.ToList());
         }
@@ -65,7 +65,7 @@ namespace HotelPedia.Controllers
             {
                 db.Hotels.Add(hotel);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("HotelSearch");
             }
 
             return View(hotel);
@@ -97,7 +97,7 @@ namespace HotelPedia.Controllers
             {
                 db.Entry(hotel).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("HotelSearch");
             }
             return View(hotel);
         }
@@ -125,7 +125,7 @@ namespace HotelPedia.Controllers
             Hotel hotel = db.Hotels.Find(id);
             db.Hotels.Remove(hotel);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("HotelSearch");
         }
 
         protected override void Dispose(bool disposing)

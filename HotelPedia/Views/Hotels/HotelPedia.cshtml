@@ -4,57 +4,44 @@
     ViewBag.Title = "HotelPedia";
 }
 
-
 <head>
     <meta charset="UTF-8">
-
-    <link href="~/Content/HotelPedia.css" rel="stylesheet" />
+    <link href="~/Content/HomePage.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
 
 </head>
 <body>
-    <div class="header">
-        <p id="one"></p>
 
-        <p id="a">
-            <a href="HotelPedia.html">HOME</a>
-            <a href="HotelSearch.html">HOTEL SEARCH</a>
-            <a href="DISCOVER.html">DISCOVER</a>
-            <a href="ABOUT.html">ABOUT</a>
-        </p>
-
-
-
-    </div>
-    <div class="body1">
-        <p id="two">HotelPedia<br>Skopje</p>
+    <div class="find-the-best-hotels">
         <p>Find the <br> best hotels <br> in Skopje, <br> Macedonia</p>
     </div>
+
     <div class="slidecontainer">
-        <input type="range" min="1" max="100" class="slider" id="myRange">
+        @*<input type="range" min="1" max="100" class="slider" id="myRange">*@
 
-        <span id="stars">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star unchecked"></span>
-        </span>
+        <input type="range" min="1" max="3" value="1" class="slider" id="myRange"><br/>
+        <p><span id="demo"></span></p>
 
-        <input type="button" value="Search" onclick="location.href='@Url.Action("Index", "Hotels")'" />
-        @*<a href="Result.html" class="button">Search</a>*@
-        <br>
-        <span id="dollar">$ $</span>
+        <fieldset class="rating">
+            <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
+            <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
+            <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
+            <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+            <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
+        </fieldset>
 
+        <div class="btnSearchContainer">
+            <input type="button" value="Search" onclick="location.href='@Url.Action("HotelSearch", "Hotels")'" class="btn btnSearch" />
+            @*<a href="Result.html" class="button">Search</a>*@
+        </div>
+        
 
 
     </div>
 
+
+<script src="~/Content/DollarRangeSelect.js"></script>
 </body>
-</html>
+
 
