@@ -77,73 +77,74 @@
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.name_mk)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.name_ang)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.starsNum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.breakfast_included)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.free_cancellation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.swimming_pool)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.parking)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.wifi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.smoking)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.disabled_guest)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.pets)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.distance_center)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.distance_airport)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.street)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.postcode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.city)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.website)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.phone)
-            </td>
-           
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name_mk)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name_ang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.starsNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.breakfast_included)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.free_cancellation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.swimming_pool)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.parking)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.wifi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.smoking)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.disabled_guest)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pets)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.distance_center)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.distance_airport)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.street)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.postcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.city)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.website)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+
+            </tr>
+        }
+
     </table>
 </body>
 </html>

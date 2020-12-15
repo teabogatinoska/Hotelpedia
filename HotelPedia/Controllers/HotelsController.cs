@@ -22,21 +22,7 @@ namespace HotelPedia.Controllers
             return View(db.Hotels.ToList());
         }
 
-        /* ova mozda i ne treba */
-        [HttpPost]
-        public ActionResult HotelPedia(Hotel obj)
-        {
-            var hotelList = db.Hotels.ToList();
-            string jsondata = new JavaScriptSerializer().Serialize(hotelList);
-            string path = Server.MapPath("~/App_Data/");
-            System.IO.File.WriteAllText(path + "output.json", jsondata);
-            TempData["msg"] = "Json file Generated! check this in your App_Data folder";
-            return RedirectToAction("HotelPedia"); ;
-        }
-        /*-----------------------------------------*/
-
-
-        public ActionResult Index()
+        public ActionResult HotelSearch()
         {
             //get the Json filepath  
             string file = Server.MapPath("~/App_Data/csvjson.json");
@@ -51,7 +37,7 @@ namespace HotelPedia.Controllers
         }
 
 
-        public ActionResult HotelSearch()
+        public ActionResult Index()
         {
             return View(db.Hotels.ToList());
         }

@@ -298,3 +298,58 @@ input[type="range"] {
 .rating > input:checked ~ label:hover ~ label {
     color: #FFED85;
 }
+
+div.marriott {
+    background: #FFFFFF;
+    width: 700px;
+    height: 260px;
+    margin-left: 330px;
+    margin-top: -325px;
+    line-height: 1.6em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+div.marriott > #marriott {
+    width: auto;
+    height: 200px;
+    padding: 30px;
+}
+
+div.visit {
+    background: #EBE5E5;
+    width: 310px;
+    padding: 10px;
+    margin-left: 1100px;
+    margin-top: -900px;
+}
+
+#zname, #spomenik, #most, #carsija, #kale {
+    width: auto;
+    height: 30px;
+}
+
+.body2, .body3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    background-color: #EBE5E5;
+    max-width: 200px;
+    margin-left: 60px;
+    margin-top: 70px;
+    line-height: 2.3em;
+    height: auto;
+    color: dimgrey;
+    padding: 10px;
+}
+
+.body2 {
+    float: left;
+}
+
+body2 > #stars {
+    margin-left: 40px;
+}
+
+body2 > #checkbox {
+    margin-left: 15px;
+}
