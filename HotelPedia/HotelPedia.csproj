@@ -131,6 +131,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
+    <Compile Include="Controllers\ReadJsonController.cs" />
     <Compile Include="Data\HotelPediaContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -186,6 +187,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\images\Ibis.webp" />
+    <Content Include="App_Data\csvjson.json" />
     <None Include="Dockerfile" />
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
@@ -223,10 +225,9 @@
     <Content Include="Views\Hotels\ABOUT.cshtml" />
     <Content Include="Views\Hotels\Discover.cshtml" />
     <Content Include="Views\Hotels\HotelPedia.cshtml" />
+    <Content Include="Views\ReadJson\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

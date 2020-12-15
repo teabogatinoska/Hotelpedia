@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using HotelPedia.Data;
 using HotelPedia.Models;
 
@@ -16,6 +17,24 @@ namespace HotelPedia.Controllers
         private HotelPediaContext db = new HotelPediaContext();
 
         // GET: Hotels
+        public ActionResult HotelPedia()
+        {
+            return View(db.Hotels.ToList());
+        }
+
+        /* ova mozda i ne treba */
+        [HttpPost]
+        public ActionResult HotelPedia(Hotel obj)
+        {
+            var hotelList = db.Hotels.ToList();
+            string jsondata = new JavaScriptSerializer().Serialize(hotelList);
+            string path = Server.MapPath("~/App_Data/");
+            System.IO.File.WriteAllText(path + "output.json", jsondata);
+            TempData["msg"] = "Json file Generated! check this in your App_Data folder";
+            return RedirectToAction("HotelPedia"); ;
+        }
+        /*-----------------------------------------*/
+
         public ActionResult HotelSearch()
         {
             return View(db.Hotels.ToList());
@@ -28,10 +47,7 @@ namespace HotelPedia.Controllers
         {
             return View(db.Hotels.ToList());
         }
-        public ActionResult HotelPedia()
-        {
-            return View(db.Hotels.ToList());
-        }
+       
 
         // GET: Hotels/Details/5
         public ActionResult Details(long? id)
