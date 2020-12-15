@@ -131,7 +131,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
-    <Compile Include="Controllers\ReadJsonController.cs" />
     <Compile Include="Data\HotelPediaContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -225,7 +224,7 @@
     <Content Include="Views\Hotels\ABOUT.cshtml" />
     <Content Include="Views\Hotels\Discover.cshtml" />
     <Content Include="Views\Hotels\HotelPedia.cshtml" />
-    <Content Include="Views\ReadJson\Index.cshtml" />
+    <Content Include="Views\Hotels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

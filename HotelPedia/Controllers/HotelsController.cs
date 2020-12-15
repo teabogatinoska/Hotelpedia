@@ -35,6 +35,22 @@ namespace HotelPedia.Controllers
         }
         /*-----------------------------------------*/
 
+
+        public ActionResult Index()
+        {
+            //get the Json filepath  
+            string file = Server.MapPath("~/App_Data/csvjson.json");
+
+            //deserialize JSON from file  
+            string Json = System.IO.File.ReadAllText(file);
+
+            JavaScriptSerializer ser = new JavaScriptSerializer();
+            var hotelList = ser.Deserialize<List<Hotel>>(Json);
+
+            return View(hotelList);
+        }
+
+
         public ActionResult HotelSearch()
         {
             return View(db.Hotels.ToList());
