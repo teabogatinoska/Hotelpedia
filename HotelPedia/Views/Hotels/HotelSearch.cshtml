@@ -13,54 +13,82 @@
 </head>
 <body>
 
-
-    <div>
-
-        <img src="~/Content/images/kontitental.jpg" style="height:340px; width:auto">
-        @*@Model.First().image_url;*@
-    </div>
-
-
-    <div class="body2">
+    <div class="sortFilterContainer">
         <br>
         <span id="stars">
-            <span>$ $ $ </span>
+            <span>$ $ $ fiksni treba da se smenat </span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
         </span>
-        <p id="checkbox">
-            <input type="checkbox" id="breakfast">
-            <label for="breakfast">Breakfast included</label><br>
-            <input type="checkbox" id="parking">
-            <label for="parking">Free parking</label><br>
-            <input type="checkbox" id="cancellation">
-            <label for="cancellation">Free cancellation</label><br>
-            <input type="checkbox" id="wifi">
-            <label for="wifi">Wi-fi</label><br>
-            <input type="checkbox" id="pool">
-            <label for="pool">Swimming pool</label><br>
-            <input type="checkbox" id="smoking">
-            <label for="smoking">No smoking</label><br>
-            <input type="checkbox" id="wheelchair">
-            <label for="wheelchair">Wheelchair accessible</label><br>
-            <input type="checkbox" id="pets">
-            <label for="pets">Pets</label><br>
+        <div id="checkbox">
+
+            <label class="containerCheckbox">
+                Breakfast included
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                Free parking
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                Free cancellation
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                Wi-fi
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                Swimming pool
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                No smoking
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                Wheelchair accessible
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                Pets
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+
             Distance from center<br>
-            <input type="checkbox" id="onekm">
-            <label for="onekm"> < 1km</label>
-            <input type="checkbox" id="twokm">
-            <label for="twokm"> < 2km</label><br>
+
+            <label class="containerCheckbox">
+                < 1 km
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                < 2 km
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+
             Distance from airport<br>
-            <input type="checkbox" id="airport1">
-            <label for="airport1"> < 25km</label>
 
-        </p>
-    </div>
+            <label class="containerCheckbox">
+                < 25 km
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
 
-    <div class="body3">
+        </div>
+
         <br>
         <span style="margin-left: 20px; font-size: 15px">Sort by:</span><br>
         <input type="radio" id="mostS">
@@ -79,17 +107,21 @@
         <label for="a-z">A-Z</label><br>
     </div>
 
-    <div class="forEachHoteli">
+    <div class="hoteliContainer">
         @foreach (var item in Model)
         {
-            <div class="hoteli">
+            <div class="forEachHotel">
 
-                <div>
-                    @*mesto za slika*@
-                    <span style="font-weight: bold">@Html.DisplayFor(modelItem => item.name_ang)</span>
+                <div class="divImg">
+                    <img src="@Url.Content(item.image_url)" alt="image" class="imgHotel" />
+
+                </div>
+
+                <div class="divInfo">
+
+                    <span class="naslovForEach">@Html.DisplayFor(modelItem => item.name_ang)</span>
 
                     <span id="stars1">
-                        <span>fiksno treba js</span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
@@ -112,22 +144,18 @@
                         </a>
                     </span>
                     <br><br>
+                    <div class="containerAddrVisit">
+                        <span class="addressInfo">Address: @Html.DisplayFor(modelItem => item.street)</span>
+                        <span class="visitInfo"> <a href="https://www.booking.com/hotel/mk/skopje-marriott.en-gb.html?label=gen173nr-1FCAEoggI46AdIM1gEaJMBiAEBmAEJuAEXyAEM2AEB6AEB-AELiAIBqAIDuAKqnLP-BcACAdICJDFhZTUwZTEzLWM2MWEtNGZkMy1hMThjLTM1Mjg2NDQzNThiZNgCBuACAQ;sid=ba20b04e5be2c24cdace5b226ef2cf85;dest_id=-95841;dest_type=city;dist=0;group_adults=3;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=3;req_children=0;room1=A%2CA%2CA;sb_price_type=total;sr_order=popularity;srepoch=1607257651;srpvid=aebb579925ce00bd;type=total;ucfs=1&#hotelTmpl" style="color: #E0B15E; font-weight: bold; font-size:13px; font-style: italic">-> visit on booking.com </a></span>
 
-                    <span>Address: @Html.DisplayFor(modelItem => item.street)</span><br>
-
-                    <span style="margin-left:250px"> <a href="https://www.booking.com/hotel/mk/skopje-marriott.en-gb.html?label=gen173nr-1FCAEoggI46AdIM1gEaJMBiAEBmAEJuAEXyAEM2AEB6AEB-AELiAIBqAIDuAKqnLP-BcACAdICJDFhZTUwZTEzLWM2MWEtNGZkMy1hMThjLTM1Mjg2NDQzNThiZNgCBuACAQ;sid=ba20b04e5be2c24cdace5b226ef2cf85;dest_id=-95841;dest_type=city;dist=0;group_adults=3;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=3;req_children=0;room1=A%2CA%2CA;sb_price_type=total;sr_order=popularity;srepoch=1607257651;srpvid=aebb579925ce00bd;type=total;ucfs=1&#hotelTmpl" style="color: #E0B15E; font-weight: bold; font-size:13px; font-style: italic">-> visit on booking.com </a></span>
-
-
+                    </div>
                 </div>
-
             </div>
-
         }
     </div>
 
 
-
-    <div class="hoteli">
+    <div>
         <div class="kontinental">
             <img src="~/Content/images/kontitental.jpg" id="kontinental">
             <p id="K">
@@ -155,30 +183,7 @@
 
         </div>
 
-        <div class="ibis">
-            <img src="~/Content/images/Ibis.jpg" id="ibis">
-            <p id="I">
 
-                <span style="font-weight: bold">Ibis Hotel</span>
-                <span id="stars3">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star unchecked"></span>
-                </span><br>
-                <span>0.5 km from center</span><br>
-                <span style="font-style: italic; color: #E0B15E">$$</span><br><br>
-
-                <span>email: <a href="mailto:contact@ibiscityskopje.com.mk" style="color: dodgerblue; font-weight: bold; font-size:13px">contact@ibiscityskopje.com.mk</a></span><br>
-                <span>phone: <a href="callto:+38923128742" style="color: dodgerblue; font-weight: bold; font-size:13px">+389 2 3128 742</a> </span><br><br>
-                <span>Address: Orce Nikolov 55</span><br>
-
-                <span style="margin-left: 250px"> <a href="https://www.booking.com/hotel/mk/ibis-skopje-city-center.en-gb.html?aid=356980;label=gog235jc-1DCAsokwFCF2liaXMtc2tvcGplLWNpdHktY2VudGVySDNYA2iTAYgBAZgBCbgBF8gBDNgBA-gBAYgCAagCA7gC5Oez_gXAAgHSAiQwOWUwZmUyNi0xYTUwLTQyMDAtYmQ3ZS04YjI5MTU1OWJmZTLYAgTgAgE;sid=ba20b04e5be2c24cdace5b226ef2cf85;dist=0&group_adults=3&group_children=0&keep_landing=1&no_rooms=1&sb_price_type=total&type=total&" style="color: #E0B15E; font-weight: bold; font-size:13px; font-style: italic">-> visit on booking.com</a></span>
-
-            </p>
-
-        </div>
     </div>
 
     <div class="visit">

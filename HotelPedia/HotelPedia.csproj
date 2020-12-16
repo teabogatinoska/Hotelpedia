@@ -135,6 +135,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012151312098_InitialCreate.cs" />
+    <Compile Include="Migrations\202012151312098_InitialCreate.Designer.cs">
+      <DependentUpon>202012151312098_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012161320570_first.cs" />
+    <Compile Include="Migrations\202012161320570_first.Designer.cs">
+      <DependentUpon>202012161320570_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -186,7 +195,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\images\Ibis.webp" />
-    <Content Include="App_Data\csvjson.json" />
     <Content Include="App_Data\new_csvjson.json" />
     <None Include="Dockerfile" />
     <None Include=".dockerignore">
@@ -227,7 +235,14 @@
     <Content Include="Views\Hotels\Index.cshtml" />
     <Content Include="Views\Hotels\HotelSearch.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202012151312098_InitialCreate.resx">
+      <DependentUpon>202012151312098_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012161320570_first.resx">
+      <DependentUpon>202012161320570_first.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

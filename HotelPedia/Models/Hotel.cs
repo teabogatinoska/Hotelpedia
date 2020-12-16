@@ -12,6 +12,7 @@ namespace HotelPedia.Models
         public string name_ang { get; set; }
         public int starsNum { get; set; }
         public double price { get; set; }
+        public string image_url { get; set; }
         public bool breakfast_included { get; set; }
         public bool free_cancellation { get; set; }
         public bool swimming_pool { get; set; }

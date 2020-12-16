@@ -25,13 +25,13 @@ namespace HotelPedia.Controllers
         public ActionResult HotelSearch()
         {
             //get the Json filepath  
-            string file = Server.MapPath("~/App_Data/new_csvjson.json");
+            string fileJson = Server.MapPath("~/App_Data/new_csvjson.json");
 
             //deserialize JSON from file  
-            string Json = System.IO.File.ReadAllText(file);
+            string json = System.IO.File.ReadAllText(fileJson);
 
             JavaScriptSerializer ser = new JavaScriptSerializer();
-            var hotelList = ser.Deserialize<List<Hotel>>(Json);
+            var hotelList = ser.Deserialize<List<Hotel>>(json);
 
             return View(hotelList);
         }
