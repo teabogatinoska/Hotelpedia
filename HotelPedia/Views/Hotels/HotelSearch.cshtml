@@ -38,24 +38,24 @@
             }
             <h3>Id: @data</h3>
 
-
+            @Model.Count();
 
             @*
 
-        <script type="text/javascript">
-            var choice = $('#SortChoice :selected').text();
-            $.post("/Hotels/ApplySort", { name: choice }, function () {
-                alert(choice);
-            })
-        </script>*@
+                <script type="text/javascript">
+                    var choice = $('#SortChoice :selected').text();
+                    $.post("/Hotels/ApplySort", { name: choice }, function () {
+                        alert(choice);
+                    })
+                </script>*@
 
 
 
 
 
             @*<input type="button"
-        value="Apply sort"
-        onclick="location.href=@Url.Action("ApplySort", "Hotels", new { sortOrder = ViewBag.NameSortParm } )" />*@
+                value="Apply sort"
+                onclick="location.href=@Url.Action("ApplySort", "Hotels", new { sortOrder = ViewBag.NameSortParm } )" />*@
         </div>
 
 

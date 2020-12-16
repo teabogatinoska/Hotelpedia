@@ -38,13 +38,47 @@ namespace HotelPedia.Controllers
         }
 
         [HttpPost]
-        public ActionResult HotelSearch(string selectedValue) 
+        public ActionResult HotelSearch(string text)
         {
-            selectedValue = Request.Form["ddlId"].ToString(); //this will get selected value
+
+            var selectedValue = Request.Form["ddlId"].ToString(); //this will get selected value
             ViewBag.Message = selectedValue;
 
-            return View(db.Hotels.ToList());
+            IEnumerable<Hotel> hotels = db.Hotels.ToList();
 
+
+            switch (selectedValue)
+            {
+                case "1":
+                    hotels = hotels.OrderByDescending(s => s.starsNum);
+                    break;
+                case "2":
+                    hotels = hotels.OrderBy(s => s.starsNum);
+                    break;
+                case "3":
+                    hotels = hotels.OrderBy(s => s.price);
+                    break;
+                case "4":
+                    hotels = hotels.OrderByDescending(s => s.price);
+                    break;
+                case "5":
+                    hotels = hotels.OrderBy(s => s.distance_center);
+                    break;
+                case "6":
+                    hotels = hotels.OrderBy(s => s.distance_airport);
+                    break;
+                case "7":
+                    hotels = hotels.OrderBy(s => s.name_ang);
+                    break;
+                default:
+                    hotels = hotels.OrderBy(s => s.name_ang);
+                    break;
+            }
+
+            ViewBag.MyList = hotels;
+
+
+            return View(hotels);
         }
 
 
@@ -61,7 +95,7 @@ namespace HotelPedia.Controllers
         {
             return View(db.Hotels.ToList());
         }
-       
+
 
         // GET: Hotels/Details/5
         public ActionResult Details(long? id)
