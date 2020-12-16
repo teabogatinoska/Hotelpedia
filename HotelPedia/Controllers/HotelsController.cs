@@ -25,7 +25,7 @@ namespace HotelPedia.Controllers
         public ActionResult HotelSearch()
         {
             //get the Json filepath  
-            string file = Server.MapPath("~/App_Data/csvjson.json");
+            string file = Server.MapPath("~/App_Data/new_csvjson.json");
 
             //deserialize JSON from file  
             string Json = System.IO.File.ReadAllText(file);
