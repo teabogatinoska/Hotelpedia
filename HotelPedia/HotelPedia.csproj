@@ -234,6 +234,7 @@
     <Content Include="Views\Hotels\HotelPedia.cshtml" />
     <Content Include="Views\Hotels\Index.cshtml" />
     <Content Include="Views\Hotels\HotelSearch.cshtml" />
+    <Content Include="Views\Hotels\ApplySort.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202012151312098_InitialCreate.resx">

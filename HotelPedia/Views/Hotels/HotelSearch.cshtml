@@ -14,6 +14,51 @@
 <body>
 
     <div class="sortFilterContainer">
+
+        <div class="btnSort">
+
+            @using (Html.BeginForm("HotelSearch", "Hotels", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.DropDownList("ddlId", new List<SelectListItem>
+                {
+                   new SelectListItem{ Text="Most stars", Value = "1" },
+                   new SelectListItem{ Text="Least stars", Value = "2" },
+                   new SelectListItem{ Text="Lowest price", Value = "3" },
+                   new SelectListItem{ Text="Highest price", Value = "4" },
+                   new SelectListItem{ Text="Closest to center", Value = "5" },
+                   new SelectListItem{ Text="Closest to airport", Value = "6" },
+                   new SelectListItem{ Text="A-Z", Value = "7" }
+                }, "Select Sort")
+
+                <input type="submit" value="Submit" />
+            }
+
+            @{
+                var data = ViewBag.Message;
+            }
+            <h3>Id: @data</h3>
+
+
+
+            @*
+
+        <script type="text/javascript">
+            var choice = $('#SortChoice :selected').text();
+            $.post("/Hotels/ApplySort", { name: choice }, function () {
+                alert(choice);
+            })
+        </script>*@
+
+
+
+
+
+            @*<input type="button"
+        value="Apply sort"
+        onclick="location.href=@Url.Action("ApplySort", "Hotels", new { sortOrder = ViewBag.NameSortParm } )" />*@
+        </div>
+
+
         <br>
         <span id="stars">
             <span>$ $ $ fiksni treba da se smenat </span>
@@ -120,7 +165,7 @@
                 <div class="divInfo">
 
                     <span class="naslovForEach">@Html.DisplayFor(modelItem => item.name_ang)</span>
-                    <br/>
+                    <br />
                     <span id="stars1">
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>

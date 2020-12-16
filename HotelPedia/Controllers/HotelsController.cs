@@ -22,6 +22,7 @@ namespace HotelPedia.Controllers
             return View(db.Hotels.ToList());
         }
 
+        [HttpGet]
         public ActionResult HotelSearch()
         {
             //get the Json filepath  
@@ -35,6 +36,17 @@ namespace HotelPedia.Controllers
 
             return View(hotelList);
         }
+
+        [HttpPost]
+        public ActionResult HotelSearch(string selectedValue) 
+        {
+            selectedValue = Request.Form["ddlId"].ToString(); //this will get selected value
+            ViewBag.Message = selectedValue;
+
+            return View(db.Hotels.ToList());
+
+        }
+
 
 
         public ActionResult Index()
