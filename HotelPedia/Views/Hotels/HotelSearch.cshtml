@@ -168,17 +168,20 @@
                     <span class="imeAngHotel"><b>@Html.DisplayFor(modelItem => item.name_ang)</b></span>
                     <br />
                     <span class="brStars" style="display:none">@Html.DisplayFor(modelItem => item.starsNum)</span>
-
-                    <span class="stars1">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                    </span><br>
+                    @{
+                        var count = item.starsNum;
+                    }
+                    @while ( count  > 0)
+                        {
+                        <span class="stars1">
+                            <span class="fa fa-star checked"></span>
+                        </span>
+                        count--;
+                    }
+                    <br>
                     <span>@Html.DisplayFor(modelItem => item.distance_center) km from center</span><br>
                     <span class="brPrice" style="font-style: italic; color: #E0B15E; display:none">@Html.DisplayFor(modelItem => item.price)</span><br><br>
-                  
+
                     <span class="distCenter" style="display:none">@Html.DisplayFor(modelItem => item.distance_center)</span>
 
                     <span class="distAirport" style="display:none">@Html.DisplayFor(modelItem => item.distance_airport)</span>
