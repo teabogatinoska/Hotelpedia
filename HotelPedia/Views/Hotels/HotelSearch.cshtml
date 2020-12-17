@@ -15,33 +15,48 @@
 
     <div class="sortFilterContainer">
 
+
+        <label for="sortSelect">Sort by:</label>
+        <select id="sortSelect" name="sortSelect" onchange="funcSort()">
+            <option value="most_stars">Most stars</option>
+            <option value="least_stars">Least stars</option>
+            <option value="lowest_price">Lowest price</option>
+            <option value="highest_price">Highest price</option>
+            <option value="center_closest">Closest to center</option>
+            <option value="airport_closest">Closest to airport</option>
+            <option value="az">A-Z</option>
+        </select>
+
+
+
         <div class="btnSort">
 
-            @using (Html.BeginForm("HotelSearch", "Hotels", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-                @Html.DropDownList("ddlId", new List<SelectListItem>
-                {
-                   new SelectListItem{ Text="Most stars", Value = "1" },
-                   new SelectListItem{ Text="Least stars", Value = "2" },
-                   new SelectListItem{ Text="Lowest price", Value = "3" },
-                   new SelectListItem{ Text="Highest price", Value = "4" },
-                   new SelectListItem{ Text="Closest to center", Value = "5" },
-                   new SelectListItem{ Text="Closest to airport", Value = "6" },
-                   new SelectListItem{ Text="A-Z", Value = "7" }
-                }, "Select Sort")
-
-                <input type="submit" value="Submit" />
-            }
-
-            @{
-                var data = ViewBag.Message;
-            }
-            <h3>Id: @data</h3>
-
-            @Model.Count();
-
             @*
+                @using (Html.BeginForm("HotelSearch", "Hotels", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.DropDownList("ddlId", new List<SelectListItem>
+                    {
+                       new SelectListItem{ Text="Most stars", Value = "1" },
+                       new SelectListItem{ Text="Least stars", Value = "2" },
+                       new SelectListItem{ Text="Lowest price", Value = "3" },
+                       new SelectListItem{ Text="Highest price", Value = "4" },
+                       new SelectListItem{ Text="Closest to center", Value = "5" },
+                       new SelectListItem{ Text="Closest to airport", Value = "6" },
+                       new SelectListItem{ Text="A-Z", Value = "7" }
+                    }, "Select Sort")
 
+                    <input type="submit" value="Submit" />
+                }
+            *@
+            @*
+                @{
+                    var data = ViewBag.Message;
+                }
+                <h3>Id: @data</h3>
+
+                @Model.Count();
+            *@
+            @*
                 <script type="text/javascript">
                     var choice = $('#SortChoice :selected').text();
                     $.post("/Hotels/ApplySort", { name: choice }, function () {
@@ -49,15 +64,10 @@
                     })
                 </script>*@
 
-
-
-
-
             @*<input type="button"
                 value="Apply sort"
                 onclick="location.href=@Url.Action("ApplySort", "Hotels", new { sortOrder = ViewBag.NameSortParm } )" />*@
         </div>
-
 
         <br>
         <span id="stars">
@@ -153,9 +163,10 @@
     </div>
 
     <div class="hoteliContainer">
+
         @foreach (var item in Model)
         {
-            <div class="forEachHotel">
+            <div class="oneHotel">
 
                 <div class="divImg">
                     <img src="@Url.Content(item.image_url)" alt="image" class="imgHotel" />
@@ -164,9 +175,11 @@
 
                 <div class="divInfo">
 
-                    <span class="naslovForEach">@Html.DisplayFor(modelItem => item.name_ang)</span>
+                    <span class="imeAngHotel">@Html.DisplayFor(modelItem => item.name_ang)</span>
                     <br />
-                    <span id="stars1">
+                    <span class="brStars" style="display:none">@Html.DisplayFor(modelItem => item.starsNum)</span>
+
+                    <span class="stars1">
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
@@ -174,7 +187,11 @@
                         <span class="fa fa-star checked"></span>
                     </span><br>
                     <span>@Html.DisplayFor(modelItem => item.distance_center) km from center</span><br>
-                    <span style="font-style: italic; color: #E0B15E">$$$ fiksno treba js</span><br><br>
+                    <span class="brPrice" style="font-style: italic; color: #E0B15E">@Html.DisplayFor(modelItem => item.price)</span><br><br>
+                  
+                    <span class="distCenter" style="display:none">@Html.DisplayFor(modelItem => item.distance_center)</span>
+
+                    <span class="distAirport" style="display:none">@Html.DisplayFor(modelItem => item.distance_airport)</span>
 
                     <span>
                         email: <a href="mailto:@Url.Content(item.email)" style="color: dodgerblue; font-weight: bold; font-size:13px">
@@ -238,9 +255,8 @@
         <img src="~/Content/images/Most.jpg" id="most"><br>
         <img src="~/Content/images/Carsija.jpg" id="carsija">
         <img src="~/Content/images/Kale.jpg" id="kale">
-
-
-
     </div>
+
+    <script src="~/Content/HotelSearchJS.js"></script>
 </body>
 

@@ -159,6 +159,7 @@
     <Content Include="Content\DollarRangeSelect.js" />
     <Content Include="Content\HomePage.css" />
     <Content Include="Content\HotelSearch.css" />
+    <Content Include="Content\HotelSearchJS.js" />
     <Content Include="Content\images\Arka.jpg" />
     <Content Include="Content\images\body-bg-marriott.jpg" />
     <Content Include="Content\images\body.jpg" />
