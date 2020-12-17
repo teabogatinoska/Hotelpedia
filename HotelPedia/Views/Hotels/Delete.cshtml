@@ -1,0 +1,184 @@
+﻿@model HotelPedia.Models.Hotel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Hotel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name_mk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name_mk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name_ang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name_ang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.starsNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.starsNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.breakfast_included)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.breakfast_included)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.free_cancellation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.free_cancellation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.swimming_pool)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.swimming_pool)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.parking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.parking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wifi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wifi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.smoking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.smoking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.disabled_guest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.disabled_guest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pets)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.distance_center)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.distance_center)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.distance_airport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.distance_airport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.website)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.website)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "HotelSearch")
+        </div>
+    }
+</div>

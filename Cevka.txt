@@ -1,6 +1,0 @@
-Улогата на цефката е од .osm датотеката која ја симнавме од OpenStreetMap да ги исфилтрираме сите 
-хотели во центарот на градот Скопје, а потоа да го конвертираме во .csv датотека која всушност е 
-базата на податоци :
-
-osmosis --read-xml map.osm --tf accept-ways tourism=hotel --used-node --write-xml | osmconvert64-0.8.8p.exe
- - --all-to-nodes --csv="@id @lon @lat name" --csv-headline --csv-separator="," -o="hotel.csv"

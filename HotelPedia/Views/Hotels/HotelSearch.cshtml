@@ -1,0 +1,262 @@
+﻿@model IEnumerable<HotelPedia.Models.Hotel>
+
+@{
+    ViewBag.Title = "HotelSearch";
+
+}
+
+<head>
+    <meta charset="UTF-8">
+    <link href="~/Content/HotelSearch.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+    <div class="sortFilterContainer">
+
+
+        <label for="sortSelect">Sort by:</label>
+        <select id="sortSelect" name="sortSelect" onchange="funcSort()">
+            <option value="most_stars">Most stars</option>
+            <option value="least_stars">Least stars</option>
+            <option value="lowest_price">Lowest price</option>
+            <option value="highest_price">Highest price</option>
+            <option value="center_closest">Closest to center</option>
+            <option value="airport_closest">Closest to airport</option>
+            <option value="az">A-Z</option>
+        </select>
+
+
+
+        <div class="btnSort">
+
+            @*
+                @using (Html.BeginForm("HotelSearch", "Hotels", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.DropDownList("ddlId", new List<SelectListItem>
+                    {
+                       new SelectListItem{ Text="Most stars", Value = "1" },
+                       new SelectListItem{ Text="Least stars", Value = "2" },
+                       new SelectListItem{ Text="Lowest price", Value = "3" },
+                       new SelectListItem{ Text="Highest price", Value = "4" },
+                       new SelectListItem{ Text="Closest to center", Value = "5" },
+                       new SelectListItem{ Text="Closest to airport", Value = "6" },
+                       new SelectListItem{ Text="A-Z", Value = "7" }
+                    }, "Select Sort")
+
+                    <input type="submit" value="Submit" />
+                }
+            *@
+            @*
+                @{
+                    var data = ViewBag.Message;
+                }
+                <h3>Id: @data</h3>
+
+                @Model.Count();
+            *@
+            @*
+                <script type="text/javascript">
+                    var choice = $('#SortChoice :selected').text();
+                    $.post("/Hotels/ApplySort", { name: choice }, function () {
+                        alert(choice);
+                    })
+                </script>*@
+
+            @*<input type="button"
+                value="Apply sort"
+                onclick="location.href=@Url.Action("ApplySort", "Hotels", new { sortOrder = ViewBag.NameSortParm } )" />*@
+        </div>
+
+        <br>
+        <span id="stars">
+            <span>$ $ $ fiksni treba da se smenat </span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+        </span>
+        <div id="checkbox">
+
+            <label class="containerCheckbox">
+                Breakfast included
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                Free parking
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                Free cancellation
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                Wi-fi
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                Swimming pool
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                No smoking
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                Wheelchair accessible
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                Pets
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+
+            Distance from center<br>
+
+            <label class="containerCheckbox">
+                < 1 km
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">
+                < 2 km
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+
+            Distance from airport<br>
+
+            <label class="containerCheckbox">
+                < 25 km
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+
+        </div>
+
+        <br>
+        <span style="margin-left: 20px; font-size: 15px">Sort by:</span><br>
+        <input type="radio" id="mostS">
+        <label for="mostS">Most stars</label><br>
+        <input type="radio" id="leastS">
+        <label for="leastS">Least stars</label><br>
+        <input type="radio" id="lowestP">
+        <label for="lowestP">Lowest price</label><br>
+        <input type="radio" id="highestP">
+        <label for="highestP">Highest price</label><br>
+        <input type="radio" id="center">
+        <label for="center">Closest to center</label><br>
+        <input type="radio" id="airport2">
+        <label for="airport2">Closest to airport</label><br>
+        <input type="radio" id="a-z">
+        <label for="a-z">A-Z</label><br>
+    </div>
+
+    <div class="hoteliContainer">
+
+        @foreach (var item in Model)
+        {
+            <div class="oneHotel">
+
+                <div class="divImg">
+                    <img src="@Url.Content(item.image_url)" alt="image" class="imgHotel" />
+
+                </div>
+
+                <div class="divInfo">
+
+                    <span class="imeAngHotel">@Html.DisplayFor(modelItem => item.name_ang)</span>
+                    <br />
+                    <span class="brStars" style="display:none">@Html.DisplayFor(modelItem => item.starsNum)</span>
+
+                    <span class="stars1">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </span><br>
+                    <span>@Html.DisplayFor(modelItem => item.distance_center) km from center</span><br>
+                    <span class="brPrice" style="font-style: italic; color: #E0B15E">@Html.DisplayFor(modelItem => item.price)</span><br><br>
+                  
+                    <span class="distCenter" style="display:none">@Html.DisplayFor(modelItem => item.distance_center)</span>
+
+                    <span class="distAirport" style="display:none">@Html.DisplayFor(modelItem => item.distance_airport)</span>
+
+                    <span>
+                        email: <a href="mailto:@Url.Content(item.email)" style="color: dodgerblue; font-weight: bold; font-size:13px">
+                            @Html.DisplayFor(modelItem => item.email)
+                        </a>
+                    </span>
+                    <br>
+
+                    <span>
+                        phone: <a href="callto:@Url.Content(item.phone)" style="color: dodgerblue; font-weight: bold; font-size:13px">
+                            @Html.DisplayFor(modelItem => item.phone)
+                        </a>
+                    </span>
+                    <br><br>
+                    <div class="containerAddrVisit">
+                        <span class="addressInfo">Address: @Html.DisplayFor(modelItem => item.street)</span>
+                        <span class="visitInfo"> <a href="https://www.booking.com/hotel/mk/skopje-marriott.en-gb.html?label=gen173nr-1FCAEoggI46AdIM1gEaJMBiAEBmAEJuAEXyAEM2AEB6AEB-AELiAIBqAIDuAKqnLP-BcACAdICJDFhZTUwZTEzLWM2MWEtNGZkMy1hMThjLTM1Mjg2NDQzNThiZNgCBuACAQ;sid=ba20b04e5be2c24cdace5b226ef2cf85;dest_id=-95841;dest_type=city;dist=0;group_adults=3;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=3;req_children=0;room1=A%2CA%2CA;sb_price_type=total;sr_order=popularity;srepoch=1607257651;srpvid=aebb579925ce00bd;type=total;ucfs=1&#hotelTmpl" style="color: #E0B15E; font-weight: bold; font-size:13px; font-style: italic">-> visit on booking.com </a></span>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+
+    <div>
+        <div class="kontinental">
+            <img src="~/Content/images/kontitental.jpg" id="kontinental">
+            <p id="K">
+
+                <span id="hotelK" style="font-weight: bold">Hotel Continental</span>
+                <span id="stars2">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star unchecked"></span>
+                </span><br>
+                <span>2.1 km from center</span><br>
+                <span style="font-style: italic; color: #E0B15E">$$$</span><br><br>
+
+                <span>email: <a href="mailto:info@kontinentalhotel.com.mk" style="color: dodgerblue; font-weight: bold; font-size:13px">info@kontinentalhotel.com.mk</a></span><br>
+                <span>phone: <a href="callto:+38923178445" style="color: dodgerblue; font-weight: bold; font-size:13px">+389 2 3178 445</a> </span><br><br>
+                <span>Address: Aleksandar Makedonski bb</span><br>
+
+                <span style="margin-left:250px"> <a href="https://www.booking.com/hotel/mk/continental.en-gb.html?aid=356980;label=gog235jc-1DCAsokwFCC2NvbnRpbmVudGFsSDNYA2iTAYgBAZgBCbgBF8gBDNgBA-gBAYgCAagCA7gCgNSz_gXAAgHSAiQ2YmRkNWVhNC0wNWIzLTQ5NmYtYmFlMi1hYjgwODEyNTBiM2HYAgTgAgE;sid=ba20b04e5be2c24cdace5b226ef2cf85;dist=0&group_adults=3&group_children=0&keep_landing=1&no_rooms=1&sb_price_type=total&type=total&" style="color: #E0B15E; font-weight: bold; font-size:13px; font-style: italic">-> visit on booking.com</a></span>
+
+            </p>
+
+
+
+        </div>
+
+
+    </div>
+
+    <div class="visit">
+        <span style=" font-family: 'Cedarville Cursive', cursive; font-size: 26px">Visit Skopje...</span>
+        <img src="~/Content/images/Zname.png" id="zname"><br>
+        <img src="~/Content/images/Spomenik.jpeg" id="spomenik">
+        <img src="~/Content/images/Most.jpg" id="most"><br>
+        <img src="~/Content/images/Carsija.jpg" id="carsija">
+        <img src="~/Content/images/Kale.jpg" id="kale">
+    </div>
+
+    <script src="~/Content/HotelSearchJS.js"></script>
+</body>
+
