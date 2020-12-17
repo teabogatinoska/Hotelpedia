@@ -57,7 +57,14 @@ function funcSort() {
     });
 
     console.log(arrZaSort);
-    var hoteliConteiner = document.getElementsByClassName("hoteliContainer")
+
+    var hoteliContainer = document.getElementsByClassName("hoteliContainer")
     var conteinerDiv = hoteliContainer[0]
-    conteinerDiv.innerHtml = ""
+    conteinerDiv.innerHTML = ""
+
+    for (var i = 0; i < arrZaSort.length; i++) {
+        conteinerDiv.append(arrZaSort[i][1]);
+    }
+
+
 }
