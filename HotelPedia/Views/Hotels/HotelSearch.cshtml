@@ -175,7 +175,7 @@
 
                 <div class="divInfo">
 
-                    <span class="imeAngHotel">@Html.DisplayFor(modelItem => item.name_ang)</span>
+                    <span class="imeAngHotel"><b>@Html.DisplayFor(modelItem => item.name_ang)</b></span>
                     <br />
                     <span class="brStars" style="display:none">@Html.DisplayFor(modelItem => item.starsNum)</span>
 
@@ -187,7 +187,7 @@
                         <span class="fa fa-star checked"></span>
                     </span><br>
                     <span>@Html.DisplayFor(modelItem => item.distance_center) km from center</span><br>
-                    <span class="brPrice" style="font-style: italic; color: #E0B15E">@Html.DisplayFor(modelItem => item.price)</span><br><br>
+                    <span class="brPrice" style="font-style: italic; color: #E0B15E; display:none">@Html.DisplayFor(modelItem => item.price)</span><br><br>
                   
                     <span class="distCenter" style="display:none">@Html.DisplayFor(modelItem => item.distance_center)</span>
 
