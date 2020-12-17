@@ -57,5 +57,7 @@ function funcSort() {
     });
 
     console.log(arrZaSort);
-
+    var hoteliConteiner = document.getElementsByClassName("hoteliContainer")
+    var conteinerDiv = hoteliContainer[0]
+    conteinerDiv.innerHtml = ""
 }
