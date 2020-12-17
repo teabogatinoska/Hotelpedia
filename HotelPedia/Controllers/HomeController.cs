@@ -8,21 +8,24 @@ namespace HotelPedia.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult HotelSearch()
+        public ActionResult Index()
         {
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            if (TempData.ContainsKey("name"))
+                name = TempData["name"].ToString(); 
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            //the following throws exception as TempData["name"] is null 
+            //because we already accessed it in the About() action method
+            //name = TempData["name"].ToString(); 
 
             return View();
         }

@@ -32,48 +32,49 @@
         <div class="btnSort">
 
             @*
-                @using (Html.BeginForm("HotelSearch", "Hotels", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("HotelSearch", "Hotels", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.DropDownList("ddlId", new List<SelectListItem>
                 {
-                    @Html.DropDownList("ddlId", new List<SelectListItem>
-                    {
-                       new SelectListItem{ Text="Most stars", Value = "1" },
-                       new SelectListItem{ Text="Least stars", Value = "2" },
-                       new SelectListItem{ Text="Lowest price", Value = "3" },
-                       new SelectListItem{ Text="Highest price", Value = "4" },
-                       new SelectListItem{ Text="Closest to center", Value = "5" },
-                       new SelectListItem{ Text="Closest to airport", Value = "6" },
-                       new SelectListItem{ Text="A-Z", Value = "7" }
-                    }, "Select Sort")
+                   new SelectListItem{ Text="Most stars", Value = "1" },
+                   new SelectListItem{ Text="Least stars", Value = "2" },
+                   new SelectListItem{ Text="Lowest price", Value = "3" },
+                   new SelectListItem{ Text="Highest price", Value = "4" },
+                   new SelectListItem{ Text="Closest to center", Value = "5" },
+                   new SelectListItem{ Text="Closest to airport", Value = "6" },
+                   new SelectListItem{ Text="A-Z", Value = "7" }
+                }, "Select Sort")
 
-                    <input type="submit" value="Submit" />
-                }
+                <input type="submit" value="Submit" />
+            }
             *@
             @*
-                @{
-                    var data = ViewBag.Message;
-                }
-                <h3>Id: @data</h3>
+            @{
+                var data = ViewBag.Message;
+            }
+            <h3>Id: @data</h3>
 
-                @Model.Count();
+            @Model.Count();
             *@
             @*
-                <script type="text/javascript">
-                    var choice = $('#SortChoice :selected').text();
-                    $.post("/Hotels/ApplySort", { name: choice }, function () {
-                        alert(choice);
-                    })
-                </script>*@
+            <script type="text/javascript">
+                var choice = $('#SortChoice :selected').text();
+                $.post("/Hotels/ApplySort", { name: choice }, function () {
+                    alert(choice);
+                })
+            </script>*@
 
             @*<input type="button"
-                value="Apply sort"
-                onclick="location.href=@Url.Action("ApplySort", "Hotels", new { sortOrder = ViewBag.NameSortParm } )" />*@
+            value="Apply sort"
+            onclick="location.href=@Url.Action("ApplySort", "Hotels", new { sortOrder = ViewBag.NameSortParm } )" />*@
         </div>
 
         <br>
-        @{
-            var data = ViewBag.NumberofStars;
-        }
-        <div>Number of stars: @data</div>
+        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+        @TempData["name"]
+        @ViewBag.Message
+        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+
         <span id="stars">
             <span>$ $ $ fiksni treba da se smenat </span>
             <span class="fa fa-star checked"></span>
@@ -148,7 +149,7 @@
 
         </div>
 
- 
+
     </div>
 
     <div class="hoteliContainer">

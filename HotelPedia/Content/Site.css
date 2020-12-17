@@ -106,28 +106,28 @@ div.header > ul {
     margin-left: 50px;
 }
 
-    .form-li input[type=text] {
-        padding: 6px;
-        margin-top: 8px;
-        font-size: 17px;
-        border: none;
-        border-radius: 2px;
-    }
+.form-li input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    border-radius: 2px;
+}
 
-    .form-li button {
-        float: right;
-        padding: 6px 10px;
-        margin-top: 8px;
-        margin-right: 16px;
-        background: #ddd;
-        font-size: 17px;
-        border: none;
-        cursor: pointer;
-    }
+.form-li button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
 
-        .form-li button:hover {
-            background: #ccc;
-        }
+.form-li button:hover {
+    background: #ccc;
+}
 
 
 div.body1 > #two {
@@ -187,18 +187,18 @@ div.slidecontainer > a.button {
     width: 50px;
 }
 
-    .slider:hover {
-        opacity: 1;
-    }
+.slider:hover {
+    opacity: 1;
+}
 
-    .slider::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 30px;
-        height: 30px;
-        border: 0;
-        background: url('images/dollarsign.png');
-        cursor: pointer;
-    }
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    background: url('images/dollarsign.png');
+    cursor: pointer;
+}
 
 
 div.slidecontainer > #stars {
@@ -234,15 +234,15 @@ input[type="range"] {
     margin-right: 30px;
 }
 
-    .btnSearch:hover {
-        background-color: #cc1952;
-        color: #F6F6F6;
-        box-shadow: 1px 1px 5px #888888;
-    }
+.btnSearch:hover {
+    background-color: #cc1952;
+    color: #F6F6F6;
+    box-shadow: 1px 1px 5px #888888;
+}
 
-    .btnSearch:focus {
-        color: #F6F6F6;
-    }
+.btnSearch:focus {
+    color: #F6F6F6;
+}
 
 .btnSearchContainer {
     float: right;
@@ -263,42 +263,43 @@ input[type="range"] {
     margin-top: -70px;
 }
 
-    .rating > input {
-        display: none;
-    }
+.rating > input {
+    display: none;
+}
 
-    .rating > label:before {
-        margin: 5px;
-        font-size: 1.25em;
-        font-family: FontAwesome;
-        display: inline-block;
-        content: "\f005";
-    }
+.rating > label:before {
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+}
 
-    .rating > .half:before {
-        content: "\f089";
-        position: absolute;
-    }
+.rating > .half:before {
+    content: "\f089";
+    position: absolute;
+}
 
-    .rating > label {
-        color: #ddd;
-        float: right;
-    }
+.rating > label {
+    color: #ddd;
+    float: right;
+}
 
-    /***** CSS Magic to Highlight Stars on Hover *****/
 
-    .rating > input:checked ~ label, /* show gold star when clicked */
-    .rating:not(:checked) > label:hover, /* hover current star */
-    .rating:not(:checked) > label:hover ~ label {
-        color: #FFD700;
-    }
-        /* hover previous stars in list */
-        .rating > input:checked + label:hover, /* hover current star when changing rating */
-        .rating > input:checked ~ label:hover,
-        .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-        .rating > input:checked ~ label:hover ~ label {
-            color: #FFED85;
-        }
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label {
+    color: #FFD700;
+}
+/* hover previous stars in list */
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label {
+    color: #FFED85;
+}
 
 div.marriott {
     background: #FFFFFF;

@@ -65,8 +65,7 @@ function funcSort() {
     for (var i = 0; i < arrZaSort.length; i++) {
         conteinerDiv.append(arrZaSort[i][1]);
     }
-
-
-    
-
+       
 }
+
+
