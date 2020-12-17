@@ -14,9 +14,11 @@ namespace HotelPedia.Controllers
 {
     public class HotelsController : Controller
     {
+        
         private HotelPediaContext db = new HotelPediaContext();
 
         // GET: Hotels
+        [HttpGet]
         public ActionResult HotelPedia()
         {
             return View(db.Hotels.ToList());
@@ -34,53 +36,25 @@ namespace HotelPedia.Controllers
             JavaScriptSerializer ser = new JavaScriptSerializer();
             var hotelList = ser.Deserialize<List<Hotel>>(json);
 
+
             return View(hotelList);
         }
 
         [HttpPost]
-        public ActionResult HotelSearch(string text)
+        public ActionResult HotelSearch(int id)
         {
-
-            var selectedValue = Request.Form["ddlId"].ToString(); //this will get selected value
-            ViewBag.Message = selectedValue;
-
-            IEnumerable<Hotel> hotels = db.Hotels.ToList();
+            int ratedvalue = id;
 
 
-            switch (selectedValue)
-            {
-                case "1":
-                    hotels = hotels.OrderByDescending(s => s.starsNum);
-                    break;
-                case "2":
-                    hotels = hotels.OrderBy(s => s.starsNum);
-                    break;
-                case "3":
-                    hotels = hotels.OrderBy(s => s.price);
-                    break;
-                case "4":
-                    hotels = hotels.OrderByDescending(s => s.price);
-                    break;
-                case "5":
-                    hotels = hotels.OrderBy(s => s.distance_center);
-                    break;
-                case "6":
-                    hotels = hotels.OrderBy(s => s.distance_airport);
-                    break;
-                case "7":
-                    hotels = hotels.OrderBy(s => s.name_ang);
-                    break;
-                default:
-                    hotels = hotels.OrderBy(s => s.name_ang);
-                    break;
-            }
 
-            ViewBag.MyList = hotels;
-
-
-            return View(hotels);
+            return View();
         }
-
+        [HttpPost]
+        public ActionResult HotelPedia(int id)
+        {
+            ViewBag[NumberofStars] = id;
+            return View(db.Hotels.ToList());
+        }
 
 
         public ActionResult Index()
