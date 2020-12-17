@@ -15,8 +15,8 @@ namespace HotelPedia.Controllers
 
         public ActionResult About()
         {
-            if (TempData.ContainsKey("name"))
-                name = TempData["name"].ToString(); 
+           // if (TempData.ContainsKey("name"))
+                //name = TempData["name"].ToString(); 
 
             return View();
         }

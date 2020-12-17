@@ -174,8 +174,8 @@
                     @{
                         var count = item.starsNum;
                     }
-                    @while ( count  > 0)
-                        {
+                    @while (count > 0)
+                    {
                         <span class="stars1">
                             <span class="fa fa-star checked"></span>
                         </span>
@@ -193,7 +193,7 @@
 
                     <span class="breakfast" style="display:none">@Html.DisplayFor(modelItem => item.breakfast_included)</span>
 
-                    <span class="cancellation" style="display:none">@Html.DisplayFor(modelItem => item.free_cancellation)</span>
+                    <span class="cancellation" style="font-size:20px; color:red;">@Html.DisplayFor(modelItem => item.free_cancellation)</span>
 
                     <span class="pool" style="display:none">@Html.DisplayFor(modelItem => item.swimming_pool)</span>
 

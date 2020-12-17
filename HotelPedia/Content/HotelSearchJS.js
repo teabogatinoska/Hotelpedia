@@ -81,14 +81,32 @@ function funcFilter() {
         filters.push(checkbox.value);
     });
 
+    console.log("filters:")
     console.log(filters)
+    console.log("end of filters...")
 
+    var zz = arrNewHotels[0].querySelectorAll(".parking");
+    console.log(zz[0])
+
+
+    console.log("---------------")
+    var child = arrNewHotels[0].querySelectorAll('.cancellation');
+    console.log(child[0].innerHTML.toString());
+
+
+    var child = arrNewHotels[1].querySelectorAll('.cancellation');
+    console.log(child[0].innerHTML.toString());
+
+
+    console.log("---------------")
+/*
     for (var i = 0; i < filters.length; i++) {
 
         for (var j = 0; j < arrNewHotels.length; j++) {
 
-            console.log(arrNewHotels[j].querySelectorAll("." + filters[i]).item)
+            var qq = arrNewHotels[j].querySelectorAll("." + filters[i]);
+           // console.log(qq[0].value)
 
         }
-    }
+    }*/
 }

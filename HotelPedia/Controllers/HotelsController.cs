@@ -18,18 +18,18 @@ namespace HotelPedia.Controllers
         private HotelPediaContext db = new HotelPediaContext();
 
         // GET: Hotels
-       /* [HttpGet]
+        [HttpGet]
         public ActionResult HotelPedia()
         {
             return View(db.Hotels.ToList());
         }
-*/
+
 
         [HttpPost]
         public ActionResult HotelPedia(string data)
         {
 
-            ViewBag["Message"] = data;
+            //ViewBag["Message"] = data;
 
             //            return TempData["Message"].ToString();
             return View();
@@ -48,13 +48,13 @@ namespace HotelPedia.Controllers
 
             JavaScriptSerializer ser = new JavaScriptSerializer();
             var hotelList = ser.Deserialize<List<Hotel>>(json);
-
+/*
             if (TempData.ContainsKey("name"))
-                name = TempData["name"].ToString(); // returns "Bill" 
+               // name = TempData["name"].ToString(); // returns "Bill" 
 
             if (ViewBag.ContainsKey("Message"))
-                Message = ViewBag["Message"].ToString(); // returns "Bill" 
-
+                //Message = ViewBag["Message"].ToString(); // returns "Bill" 
+*/
 
             return View(hotelList);
         }
