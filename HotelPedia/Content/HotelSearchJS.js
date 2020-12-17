@@ -68,4 +68,27 @@ function funcSort() {
        
 }
 
+function funcFilter() {
+    var arrHotels = document.getElementsByClassName('oneHotel');
+    var arrNewHotels = [...arrHotels];
 
+    //var filters = document.getElementsByName('filtri')
+    var checkboxes = document.querySelectorAll('input[name="filtri"]:checked');
+    console.log(checkboxes)
+
+    var filters = [];
+    checkboxes.forEach((checkbox) => {
+        filters.push(checkbox.value);
+    });
+
+    console.log(filters)
+
+    for (var i = 0; i < filters.length; i++) {
+
+        for (var j = 0; j < arrNewHotels.length; j++) {
+
+            console.log(arrNewHotels[j].querySelectorAll("." + filters[i]).item)
+
+        }
+    }
+}

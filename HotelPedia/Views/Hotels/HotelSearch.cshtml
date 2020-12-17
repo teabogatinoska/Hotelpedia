@@ -15,6 +15,9 @@
 
     <div class="sortFilterContainer">
 
+        <input type="button" value="Filter" id="btnFilter" onclick="funcFilter()"/>
+
+        <input type="button" value="Clear" id="btnClear"/>
 
         <label for="sortSelect">Sort by:</label>
         <select id="sortSelect" name="sortSelect" onchange="funcSort()">
@@ -87,42 +90,42 @@
 
             <label class="containerCheckbox">
                 Breakfast included
-                <input type="checkbox">
+                <input type="checkbox" name="filtri" value="breakfast">
                 <span class="checkmark"></span>
             </label>
             <label class="containerCheckbox">
                 Free parking
-                <input type="checkbox">
+                <input type="checkbox" name="filtri" value="parking">
                 <span class="checkmark"></span>
             </label>
             <label class="containerCheckbox">
                 Free cancellation
-                <input type="checkbox">
+                <input type="checkbox" name="filtri" value="cancellation">
                 <span class="checkmark"></span>
             </label>
             <label class="containerCheckbox">
                 Wi-fi
-                <input type="checkbox">
+                <input type="checkbox" name="filtri" value="wifi">
                 <span class="checkmark"></span>
             </label>
             <label class="containerCheckbox">
                 Swimming pool
-                <input type="checkbox">
+                <input type="checkbox" name="filtri" value="pool">
                 <span class="checkmark"></span>
             </label>
             <label class="containerCheckbox">
                 No smoking
-                <input type="checkbox">
+                <input type="checkbox" name="filtri" value="smoking">
                 <span class="checkmark"></span>
             </label>
             <label class="containerCheckbox">
                 Wheelchair accessible
-                <input type="checkbox">
+                <input type="checkbox" name="filtri" value="wheelchair">
                 <span class="checkmark"></span>
             </label>
             <label class="containerCheckbox">
                 Pets
-                <input type="checkbox">
+                <input type="checkbox" name="filtri" value="pets">
                 <span class="checkmark"></span>
             </label>
 
@@ -130,12 +133,12 @@
 
             <label class="containerCheckbox">
                 < 1 km
-                <input type="checkbox">
+                <input type="checkbox" name="filtri" value="distCenter1">
                 <span class="checkmark"></span>
             </label>
             <label class="containerCheckbox">
                 < 2 km
-                <input type="checkbox">
+                <input type="checkbox" name="filtri" value="distCenter2">
                 <span class="checkmark"></span>
             </label>
 
@@ -143,7 +146,7 @@
 
             <label class="containerCheckbox">
                 < 25 km
-                <input type="checkbox">
+                <input type="checkbox" name="filtri" value="distAirport">
                 <span class="checkmark"></span>
             </label>
 
@@ -182,9 +185,29 @@
                     <span>@Html.DisplayFor(modelItem => item.distance_center) km from center</span><br>
                     <span class="brPrice" style="font-style: italic; color: #E0B15E; display:none">@Html.DisplayFor(modelItem => item.price)</span><br><br>
 
-                    <span class="distCenter" style="display:none">@Html.DisplayFor(modelItem => item.distance_center)</span>
+                    <span class="distCenter1" style="display:none">@Html.DisplayFor(modelItem => item.distance_center)</span>
+
+                    <span class="distCenter2" style="display:none">@Html.DisplayFor(modelItem => item.distance_center)</span>
 
                     <span class="distAirport" style="display:none">@Html.DisplayFor(modelItem => item.distance_airport)</span>
+
+                    <span class="breakfast" style="display:none">@Html.DisplayFor(modelItem => item.breakfast_included)</span>
+
+                    <span class="cancellation" style="display:none">@Html.DisplayFor(modelItem => item.free_cancellation)</span>
+
+                    <span class="pool" style="display:none">@Html.DisplayFor(modelItem => item.swimming_pool)</span>
+
+                    <span class="parking" style="display:none">@Html.DisplayFor(modelItem => item.parking)</span>
+
+                    <span class="wifi" style="display:none">@Html.DisplayFor(modelItem => item.wifi)</span>
+
+                    <span class="smoking" style="display:none">@Html.DisplayFor(modelItem => item.smoking)</span>
+
+                    <span class="disabled" style="display:none">@Html.DisplayFor(modelItem => item.disabled_guest)</span>
+
+                    <span class="pets" style="display:none">@Html.DisplayFor(modelItem => item.pets)</span>
+
+
 
                     <span>
                         email: <a href="mailto:@Url.Content(item.email)" style="color: dodgerblue; font-weight: bold; font-size:13px">
