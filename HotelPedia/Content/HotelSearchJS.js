@@ -66,5 +66,6 @@ function funcSort() {
         conteinerDiv.append(arrZaSort[i][1]);
     }
 
+    // posledno
 
 }
