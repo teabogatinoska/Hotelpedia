@@ -1,4 +1,50 @@
 ﻿
+
+function checkCookie() {
+
+    var brStars = getCookie("numStars");
+
+    if (brStars != "") {
+
+        alert("cookie: " + brStars);
+        document.getElementById("brojIzbraniZvezdi").innerHTML = brStars;
+
+        document.cookie = 'numStars=; Max-Age=0';
+
+        var date = new Date();
+        date.setTime(date.getTime() + (1 * 1000));
+        document.cookie('numStars', "", { expires: date });  // expires after 1 second
+    } else {
+        alert("nema cookies")
+    }
+
+
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue + ";";
+}
+
+
+
+
+
 function funcSort() {
 
     var arrHotels = document.getElementsByClassName('oneHotel');
@@ -65,7 +111,7 @@ function funcSort() {
     for (var i = 0; i < arrZaSort.length; i++) {
         conteinerDiv.append(arrZaSort[i][1]);
     }
-       
+
 }
 
 function funcFilter() {
@@ -99,14 +145,14 @@ function funcFilter() {
 
 
     console.log("---------------")
-/*
-    for (var i = 0; i < filters.length; i++) {
-
-        for (var j = 0; j < arrNewHotels.length; j++) {
-
-            var qq = arrNewHotels[j].querySelectorAll("." + filters[i]);
-           // console.log(qq[0].value)
-
-        }
-    }*/
+    /*
+        for (var i = 0; i < filters.length; i++) {
+    
+            for (var j = 0; j < arrNewHotels.length; j++) {
+    
+                var qq = arrNewHotels[j].querySelectorAll("." + filters[i]);
+               // console.log(qq[0].value)
+    
+            }
+        }*/
 }

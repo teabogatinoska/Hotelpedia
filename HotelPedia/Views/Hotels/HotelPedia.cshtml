@@ -39,52 +39,6 @@
         <div id="brIzbraniStars">vvvvvvvvvvvvvvvvv</div>
 
 
-        <div>
-            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-            <script>
-                $.ajax({
-                    url: '/Hotels/HotelPedia',
-                    method: 'POST',
-                    data: { value: GetValue() },
-                    cache: false
-                })
-                    .done(function (result) {
-                        alert(result);
-                    });
-
-            </script>
-        </div>
-
-
-        @*
-        <div>
-            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-            <script type='text/javascript'>
-                function ckkreport() {
-                    var s = document.getElementById("brIzbraniStars").innerHTML;
-
-                    $.ajax({
-                        type: "POST",
-                        url: '@Url.Action("HotelPedia", "Hotels")',
-                        data: '{ tempDataValue:"' + s + '"}',
-                        contentType: "application/json; charset=utf-8",
-                        dataType: "text",
-                        success: function () {
-                            alert(s);
-                        },
-                        error: function (r) {
-                            alert(r.responseText);
-                        }
-                    });
-                }
-            </script>
-            <input type="text" id="chklist" name="message" />
-            <input type='button' value='Update TempData' onclick='ckkreport();' />
-        </div>
-        *@
-
-
-
         <div class="btnSearchContainer" id="btnSubmitSearch">
             <input type="button" value="Search" onclick="location.href='@Url.Action("HotelSearch", "Hotels")'" class="btn btnSearch" />
 

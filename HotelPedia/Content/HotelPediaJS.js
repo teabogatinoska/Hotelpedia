@@ -9,20 +9,49 @@ document.addEventListener('DOMContentLoaded', function () {
             let radioElement = e.target.previousElementSibling;
             radioElement.checked = !radioElement.checked;
             document.getElementById("brIzbraniStars").innerHTML = radioElement.value;
-            alert(radioElement.value)
+
+            var brStars = getCookie("numStars");
+
+            if (brStars != "") {
+
+                alert("cookie: " + brStars);
+
+                document.cookie = 'numStars=; Max-Age=0';
+
+            } else {
+                alert("nema cookies")
+            }
+            setCookie("numStars", radioElement.value);
+
         })
     )
 });
 
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 
-function GetValue() {
-    return $('#brIzbraniStars').html();
+function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue + ";";
 }
 
 
+
+
+
 /*document.getElementById("btnAA").addEventListener("click", function () {
-
-
 
 });
 
