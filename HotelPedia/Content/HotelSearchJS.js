@@ -3,18 +3,35 @@
 function checkCookie() {
 
     var brStars = getCookie("numStars");
+    var brDollars = getCookie("cookieDollars");
+    /*
+    if (brDollars != "") {
 
-    if (brStars != "") {
+        document.getElementById("brojIzbraniDolari").innerHTML = brDollars;
+        alert(brDollars);
 
-        document.getElementById("brojIzbraniZvezdi").innerHTML = brStars;
-
-        document.cookie = 'numStars=; Max-Age=0';
+        document.cookie = 'cookieDollars=; Max-Age=0';
 
         var date = new Date();
         date.setTime(date.getTime() + (1 * 1000));
+        document.cookie('cookieDollars', "", { expires: date });  // expires after 1 second
+    }
+    */
+
+    if (brStars != "" && brDollars != "") {
+
+        document.getElementById("brojIzbraniZvezdi").innerHTML = brStars;
+        document.getElementById("brojIzbraniDolari").innerHTML = brDollars;
+
+        document.cookie = 'numStars=; Max-Age=0';
+        document.cookie = 'cookieDollars=; Max-Age=0';
+
+        var date = new Date();
+        date.setTime(date.getTime() + (1 * 1000));
+        document.cookie('cookieDollars', "", { expires: date });
         document.cookie('numStars', "", { expires: date });  // expires after 1 second
     }
-
+   
 }
 
 function getCookie(cname) {

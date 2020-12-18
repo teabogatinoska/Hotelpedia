@@ -21,6 +21,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
         })
     )
+    var range = document.getElementById('myRange');
+    range.addEventListener('click', function () {
+        var rangeValue = range.value;
+        var brDollars = getCookie("cookieDollars");
+        if (brDollars != "") {
+
+            document.cookie = 'cookieDollars=; Max-Age=0';
+
+        }
+        setCookie("cookieDollars", rangeValue);
+    });
+    
 });
 
 function getCookie(cname) {
