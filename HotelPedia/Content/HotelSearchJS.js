@@ -28,10 +28,18 @@ function checkCookie() {
 
         var date = new Date();
         date.setTime(date.getTime() + (1 * 1000));
-        document.cookie('cookieDollars', "", { expires: date });
-        document.cookie('numStars', "", { expires: date });  // expires after 1 second
+        //document.cookie('cookieDollars', "", { expires: date });
+        //document.cookie('numStars', "", { expires: date });  // expires after 1 second
+       getHotels();
+       alert("nova funkcija")
     }
+    
    
+}
+
+function getHotels() {
+    alert("povikana");
+
 }
 
 function getCookie(cname) {

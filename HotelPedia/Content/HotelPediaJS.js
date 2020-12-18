@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const allStarLabels = document.querySelectorAll('.rating label');
 
     allStarLabels.forEach(thisLabel =>
+
         thisLabel.addEventListener('click', e => {
             e.preventDefault();
             let radioElement = e.target.previousElementSibling;
