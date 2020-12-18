@@ -38,8 +38,37 @@ function checkCookie() {
 }
 
 function getHotels() {
-    alert("povikana");
 
+    var stars = document.getElementById("brojIzbraniZvezdi");
+    var dolars = document.getElementById("brojIzbraniDolari");
+
+    var arrHotels = document.getElementsByClassName('oneHotel');
+
+    var arrNewHotels = [...arrHotels];
+
+    var hotelStars = document.getElementsByClassName('brStars');
+    var hotelDolars = document.getElementsByClassName("brPrice");
+
+    var containerdiv = document.getElementsByClassName("hoteliContainer")[0];
+
+    var newcontainer = document.getElementById("newcontainer");
+
+    for (var i = 0; i < arrNewHotels.length; i++) {
+
+        if (hotelStars[i].innerHTML.toString() === stars.innerHTML.toString() && hotelDolars[i].innerHTML.toString() === dolars.innerHTML.toString()) {
+            newcontainer.append(arrNewHotels[i]);
+        }
+
+    }
+
+    document.getElementById("newcontainer").style.display = "inline";
+
+    containerdiv.innerHTML = "";
+    containerdiv.append(newcontainer);
+   
+    
+
+  
 }
 
 function getCookie(cname) {
