@@ -6,7 +6,6 @@ function checkCookie() {
 
     if (brStars != "") {
 
-        alert("cookie: " + brStars);
         document.getElementById("brojIzbraniZvezdi").innerHTML = brStars;
 
         document.cookie = 'numStars=; Max-Age=0';
@@ -14,10 +13,7 @@ function checkCookie() {
         var date = new Date();
         date.setTime(date.getTime() + (1 * 1000));
         document.cookie('numStars', "", { expires: date });  // expires after 1 second
-    } else {
-        alert("nema cookies")
     }
-
 
 }
 

@@ -14,12 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (brStars != "") {
 
-                alert("cookie: " + brStars);
-
                 document.cookie = 'numStars=; Max-Age=0';
 
-            } else {
-                alert("nema cookies")
             }
             setCookie("numStars", radioElement.value);
 
