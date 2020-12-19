@@ -5,13 +5,13 @@
 
 }
 
-    <head>
-        <meta charset="UTF-8">
-        <link href="~/Content/HotelSearch.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+    <meta charset="UTF-8">
+    <link href="~/Content/HotelSearch.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    </head>
-<body onload="checkCookie()">
+</head>
+<body onload="checkCookie()" id="bodyHotelSearch">
 
     <div class="sortFilterContainer">
 
@@ -30,10 +30,10 @@
             <option value="az">A-Z</option>
         </select>
 
-        
-            <input type="text" placeholder="Search.." name="search" id="searchinput">
-            <button type="submit" id="idsubmit"><i class="fa fa-search"></i></button>
-        
+
+        <input type="text" placeholder="Search.." name="search" id="searchinput">
+        <button type="submit" id="idsubmit"><i class="fa fa-search"></i></button>
+
 
 
         <br>
@@ -150,9 +150,9 @@
                     }
                     @while (count > 0)
                     {
-                    <span class="stars1">
-                        <span class="fa fa-star checked"></span>
-                    </span>
+                        <span class="stars1">
+                            <span class="fa fa-star checked"></span>
+                        </span>
                         count--;
                     }
                     <br>
@@ -205,8 +205,6 @@
             </div>
         }
     </div>
-
-
 
     <div class="visit">
         <span style=" font-family: 'Cedarville Cursive', cursive; font-size: 26px">Visit Skopje...</span>

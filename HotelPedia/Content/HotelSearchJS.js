@@ -1,22 +1,7 @@
-﻿
-
-function checkCookie() {
+﻿function checkCookie() {
 
     var brStars = getCookie("numStars");
     var brDollars = getCookie("cookieDollars");
-    /*
-    if (brDollars != "") {
-
-        document.getElementById("brojIzbraniDolari").innerHTML = brDollars;
-        alert(brDollars);
-
-        document.cookie = 'cookieDollars=; Max-Age=0';
-
-        var date = new Date();
-        date.setTime(date.getTime() + (1 * 1000));
-        document.cookie('cookieDollars', "", { expires: date });  // expires after 1 second
-    }
-    */
 
     if (brStars != "" && brDollars != "") {
 
@@ -28,12 +13,9 @@ function checkCookie() {
 
         var date = new Date();
         date.setTime(date.getTime() + (1 * 1000));
-        //document.cookie('cookieDollars', "", { expires: date });
-        //document.cookie('numStars', "", { expires: date });  // expires after 1 second
-       getHotels();
-     }
-    
-   
+
+        getHotels();
+    }
 }
 
 function getHotels() {
@@ -49,7 +31,6 @@ function getHotels() {
     var hotelDolars = document.getElementsByClassName("brPrice");
 
     var containerdiv = document.getElementsByClassName("hoteliContainer")[0];
-
     var newcontainer = document.getElementById("newcontainer");
 
     for (var i = 0; i < arrNewHotels.length; i++) {
@@ -57,17 +38,13 @@ function getHotels() {
         if (hotelStars[i].innerHTML.toString() === stars.innerHTML.toString() && hotelDolars[i].innerHTML.toString() === dolars.innerHTML.toString()) {
             newcontainer.append(arrNewHotels[i]);
         }
-
     }
 
     document.getElementById("newcontainer").style.display = "inline";
 
     containerdiv.innerHTML = "";
     containerdiv.append(newcontainer);
-   
-    
 
-  
 }
 
 function getCookie(cname) {
@@ -88,10 +65,8 @@ function getCookie(cname) {
 
 function setCookie(cname, cvalue) {
     document.cookie = cname + "=" + cvalue + ";";
+
 }
-
-
-
 
 
 function funcSort() {
@@ -164,6 +139,9 @@ function funcSort() {
 }
 
 function funcFilter() {
+    
+    console.log("aa:")
+    console.log(aa)
     var arrHotels = document.getElementsByClassName('oneHotel');
     var arrNewHotels = [...arrHotels];
 
@@ -179,60 +157,55 @@ function funcFilter() {
 
         var arrEmpty = [];
 
-        
-            for (var j = 0; j < arrNewHotels.length; j++) {
-                //var distance = arrNewHotels[j].querySelector('span[class=distCenter1]');
-                //console.log(distance);
-               
-                
-                if (filters[i] === "distCenter1") {
-                    var distance = arrNewHotels[j].querySelector('span[class=distCenter1]');
-                    var value = distance.innerHTML.toString();
 
-                    if (value < "1") {
-                        arrEmpty.push(arrNewHotels[j]);
-                    }
+        for (var j = 0; j < arrNewHotels.length; j++) {
+            //var distance = arrNewHotels[j].querySelector('span[class=distCenter1]');
+            //console.log(distance);
+
+
+            if (filters[i] === "distCenter1") {
+                var distance = arrNewHotels[j].querySelector('span[class=distCenter1]');
+                var value = distance.innerHTML.toString();
+
+                if (value < "1") {
+                    arrEmpty.push(arrNewHotels[j]);
                 }
-                else if (filters[i] === "distCenter2") {
-                    var distance = arrNewHotels[j].querySelector('span[class=distCenter2]');
-                    var value = distance.innerHTML.toString();
-
-                    if (value < "2") {
-                        arrEmpty.push(arrNewHotels[j]);
-                    }
-                }
-                else if (filters[i] === "distAirport") {
-                    var distance = arrNewHotels[j].querySelector('span[class=distAirport]');
-                    var value = distance.innerHTML.toString();
-
-                    if (value < "25") {
-                        arrEmpty.push(arrNewHotels[j]);
-                    }
-                }
-                
-
-               else {
-                    const zz = arrNewHotels[j].querySelector('span[class=' + filters[i] + ']');
-                    const zz2 = zz.querySelectorAll('input[class="check-box"]:checked');
-                    if (zz2[0] != undefined) {
-                        arrEmpty.push(arrNewHotels[j]);
-                    }
-               }
-                
-
-
             }
-        
-       
+            else if (filters[i] === "distCenter2") {
+                var distance = arrNewHotels[j].querySelector('span[class=distCenter2]');
+                var value = distance.innerHTML.toString();
+
+                if (value < "2") {
+                    arrEmpty.push(arrNewHotels[j]);
+                }
+            }
+            else if (filters[i] === "distAirport") {
+                var distance = arrNewHotels[j].querySelector('span[class=distAirport]');
+                var value = distance.innerHTML.toString();
+
+                if (value < "25") {
+                    arrEmpty.push(arrNewHotels[j]);
+                }
+            }
+
+            else {
+                const zz = arrNewHotels[j].querySelector('span[class=' + filters[i] + ']');
+                const zz2 = zz.querySelectorAll('input[class="check-box"]:checked');
+                if (zz2[0] != undefined) {
+                    arrEmpty.push(arrNewHotels[j]);
+                }
+            }
+        }
+
         arrNewHotels = [];
         arrNewHotels = [...arrEmpty];
-        
+
     }
 
     var innerhtml = "";
-   
+
     for (var i = 0; i < arrNewHotels.length; i++) {
-        
+
         innerhtml += arrNewHotels[i].innerHTML;
     }
 
