@@ -60,8 +60,4 @@ function setCookie(cname, cvalue) {
 
 
 
-/*document.getElementById("btnAA").addEventListener("click", function () {
 
-});
-
-*/

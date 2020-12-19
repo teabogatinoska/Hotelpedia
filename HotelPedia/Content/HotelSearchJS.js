@@ -31,8 +31,7 @@ function checkCookie() {
         //document.cookie('cookieDollars', "", { expires: date });
         //document.cookie('numStars', "", { expires: date });  // expires after 1 second
        getHotels();
-       alert("nova funkcija")
-    }
+     }
     
    
 }
@@ -189,28 +188,18 @@ function funcFilter() {
                 arrEmpty.push(arrNewHotels[j]);
             }
 
-            console.log("arrEmpty:")
-            console.log(arrEmpty)
 
         }
-        console.log("arrNewHotels prethodno:")
-        console.log(arrNewHotels)
+       
         arrNewHotels = [];
         arrNewHotels = [...arrEmpty];
-        console.log("arrNewHotels posle:")
-        console.log(arrNewHotels)
+        
     }
 
     var innerhtml = "";
-    console.log("arrNewHotels:")
-    console.log(arrNewHotels)
-
-
+   
     for (var i = 0; i < arrNewHotels.length; i++) {
-        console.log("arrNewHotels[" + i + "]= ")
-        console.log(arrNewHotels[i])
-        console.log("arrNewHotels[i].innerHTML:")
-        console.log(arrNewHotels[i].innerHTML)
+        
         innerhtml += arrNewHotels[i].innerHTML;
     }
 
@@ -227,3 +216,37 @@ function funcFilter() {
 
 
 }
+
+document.getElementById("idsubmit").addEventListener("click", function () {
+
+    var arrHotels = document.getElementsByClassName('oneHotel');
+    var arrNewHotels = [...arrHotels];
+
+    var searchinput = document.getElementById("searchinput").value;
+    var nameEN = document.getElementsByClassName('imeAngHotel');
+    var nameMK = document.getElementsByClassName('imeMkHotel');
+
+    var arrResult = [];
+
+    for (var i = 0; i < arrNewHotels.length; i++) {
+
+        if (nameEN[i].textContent.includes(searchinput) || nameMK[i].textContent.includes(searchinput)) {
+            arrResult.push(arrNewHotels[i]);
+        }
+    }
+
+    var innerhtml = "";
+
+    for (var i = 0; i < arrResult.length; i++) {
+        innerhtml += arrResult[i].innerHTML;
+    }
+
+    var newcontainerFilters = document.getElementById("newcontainerFilters");
+    newcontainerFilters.style.display = "inline";
+
+    newcontainer.innerHTML = "";
+    newcontainer.innerHTML = innerhtml;
+
+    newcontainer.append(newcontainerFilters);
+
+});

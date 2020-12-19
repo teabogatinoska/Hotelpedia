@@ -30,6 +30,11 @@
             <option value="az">A-Z</option>
         </select>
 
+        
+            <input type="text" placeholder="Search.." name="search" id="searchinput">
+            <button type="submit" id="idsubmit"><i class="fa fa-search"></i></button>
+        
+
 
         <br>
 
@@ -137,6 +142,7 @@
                 <div class="divInfo">
 
                     <span class="imeAngHotel"><b>@Html.DisplayFor(modelItem => item.name_ang)</b></span>
+                    <span class="imeMkHotel" style="display:none"><b>@Html.DisplayFor(modelItem => item.name_mk)</b></span>
                     <br />
                     <span class="brStars" style="display:none">@Html.DisplayFor(modelItem => item.starsNum)</span>
                     @{
@@ -144,9 +150,9 @@
                     }
                     @while (count > 0)
                     {
-                        <span class="stars1">
-                            <span class="fa fa-star checked"></span>
-                        </span>
+                    <span class="stars1">
+                        <span class="fa fa-star checked"></span>
+                    </span>
                         count--;
                     }
                     <br>
