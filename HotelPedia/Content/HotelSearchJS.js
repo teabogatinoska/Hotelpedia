@@ -140,8 +140,6 @@ function funcSort() {
 
 function funcFilter() {
     
-    console.log("aa:")
-    console.log(aa)
     var arrHotels = document.getElementsByClassName('oneHotel');
     var arrNewHotels = [...arrHotels];
 
