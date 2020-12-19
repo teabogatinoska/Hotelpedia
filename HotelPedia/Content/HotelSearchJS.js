@@ -168,7 +168,6 @@ function funcFilter() {
     var arrHotels = document.getElementsByClassName('oneHotel');
     var arrNewHotels = [...arrHotels];
 
-    //var filters = document.getElementsByName('filtri')
     var checkboxes = document.querySelectorAll('input[name="filtri"]:checked');
     console.log(checkboxes)
 
@@ -177,32 +176,54 @@ function funcFilter() {
         filters.push(checkbox.value);
     });
 
-    console.log("filters:")
-    console.log(filters)
-    console.log("end of filters...")
+    for (var i = 0; i < filters.length; i++) {
 
-    var zz = arrNewHotels[0].querySelectorAll(".parking");
-    console.log(zz[0])
+        var arrEmpty = [];
 
+        for (var j = 0; j < arrNewHotels.length; j++) {
 
-    console.log("---------------")
-    var child = arrNewHotels[0].querySelectorAll('.cancellation');
-    console.log(child[0].innerHTML.toString());
+            const zz = arrNewHotels[j].querySelector('span[class=' + filters[i] + ']');
+            const zz2 = zz.querySelectorAll('input[class="check-box"]:checked');
 
-
-    var child = arrNewHotels[1].querySelectorAll('.cancellation');
-    console.log(child[0].innerHTML.toString());
-
-
-    console.log("---------------")
-    /*
-        for (var i = 0; i < filters.length; i++) {
-    
-            for (var j = 0; j < arrNewHotels.length; j++) {
-    
-                var qq = arrNewHotels[j].querySelectorAll("." + filters[i]);
-               // console.log(qq[0].value)
-    
+            if (zz2[0] != undefined) {
+                arrEmpty.push(arrNewHotels[j]);
             }
-        }*/
+
+            console.log("arrEmpty:")
+            console.log(arrEmpty)
+
+        }
+        console.log("arrNewHotels prethodno:")
+        console.log(arrNewHotels)
+        arrNewHotels = [];
+        arrNewHotels = [...arrEmpty];
+        console.log("arrNewHotels posle:")
+        console.log(arrNewHotels)
+    }
+
+    var innerhtml = "";
+    console.log("arrNewHotels:")
+    console.log(arrNewHotels)
+
+
+    for (var i = 0; i < arrNewHotels.length; i++) {
+        console.log("arrNewHotels[" + i + "]= ")
+        console.log(arrNewHotels[i])
+        console.log("arrNewHotels[i].innerHTML:")
+        console.log(arrNewHotels[i].innerHTML)
+        innerhtml += arrNewHotels[i].innerHTML;
+    }
+
+    console.log("innerhtml:")
+    console.log(innerhtml)
+
+    var newcontainerFilters = document.getElementById("newcontainerFilters");
+    newcontainerFilters.style.display = "inline";
+
+    newcontainer.innerHTML = "";
+    newcontainer.innerHTML = innerhtml;
+
+    newcontainer.append(newcontainerFilters);
+
+
 }
