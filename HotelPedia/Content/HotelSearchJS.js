@@ -174,22 +174,55 @@ function funcFilter() {
     checkboxes.forEach((checkbox) => {
         filters.push(checkbox.value);
     });
-
+    console.log(filters);
     for (var i = 0; i < filters.length; i++) {
 
         var arrEmpty = [];
 
-        for (var j = 0; j < arrNewHotels.length; j++) {
+        
+            for (var j = 0; j < arrNewHotels.length; j++) {
+                //var distance = arrNewHotels[j].querySelector('span[class=distCenter1]');
+                //console.log(distance);
+               
+                
+                if (filters[i] === "distCenter1") {
+                    var distance = arrNewHotels[j].querySelector('span[class=distCenter1]');
+                    var value = distance.innerHTML.toString();
 
-            const zz = arrNewHotels[j].querySelector('span[class=' + filters[i] + ']');
-            const zz2 = zz.querySelectorAll('input[class="check-box"]:checked');
+                    if (value < "1") {
+                        arrEmpty.push(arrNewHotels[j]);
+                    }
+                }
+                else if (filters[i] === "distCenter2") {
+                    var distance = arrNewHotels[j].querySelector('span[class=distCenter2]');
+                    var value = distance.innerHTML.toString();
 
-            if (zz2[0] != undefined) {
-                arrEmpty.push(arrNewHotels[j]);
+                    if (value < "2") {
+                        arrEmpty.push(arrNewHotels[j]);
+                    }
+                }
+                else if (filters[i] === "distAirport") {
+                    var distance = arrNewHotels[j].querySelector('span[class=distAirport]');
+                    var value = distance.innerHTML.toString();
+
+                    if (value < "25") {
+                        arrEmpty.push(arrNewHotels[j]);
+                    }
+                }
+                
+
+               else {
+                    const zz = arrNewHotels[j].querySelector('span[class=' + filters[i] + ']');
+                    const zz2 = zz.querySelectorAll('input[class="check-box"]:checked');
+                    if (zz2[0] != undefined) {
+                        arrEmpty.push(arrNewHotels[j]);
+                    }
+               }
+                
+
+
             }
-
-
-        }
+        
        
         arrNewHotels = [];
         arrNewHotels = [...arrEmpty];
@@ -230,7 +263,7 @@ document.getElementById("idsubmit").addEventListener("click", function () {
 
     for (var i = 0; i < arrNewHotels.length; i++) {
 
-        if (nameEN[i].textContent.includes(searchinput) || nameMK[i].textContent.includes(searchinput)) {
+        if (nameEN[i].textContent.toLowerCase().includes(searchinput) || nameMK[i].textContent.toLowerCase().includes(searchinput)) {
             arrResult.push(arrNewHotels[i]);
         }
     }
