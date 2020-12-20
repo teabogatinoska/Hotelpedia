@@ -14,7 +14,8 @@
         var date = new Date();
         date.setTime(date.getTime() + (1 * 1000));
 
-        getHotels();
+        // getHotels();
+        funcFilter(1);
     }
 }
 
@@ -24,14 +25,6 @@ function getHotels() {
     var preneseni_dolars = document.getElementById("brojIzbraniDolari").innerHTML.toString();
 
     var arrHotels = document.getElementsByClassName('oneHotel');
-
-//    var arrNewHotels = [...arrHotels];
-
-//    var hotelStars = document.getElementsByClassName('brStars');
-//    var hotelDolars = document.getElementsByClassName("brPrice");
-
-//    var containerdiv = document.getElementsByClassName("hoteliContainer")[0];
-//    var newcontainer = document.getElementById("newcontainer");
 
     var arrLength = arrHotels.length;
 
@@ -44,23 +37,13 @@ function getHotels() {
         if (hotel_stars === preneseni_stars && hotel_dollars === preneseni_dolars) {
 
             div_hotel.classList.remove("sokrienDiv");
-            div_hotel.classList.add("oneHotel");
+            div_hotel.classList.add("pokaziHotel");
         }
         else {
-            div_hotel.classList.remove("oneHotel");
+            div_hotel.classList.remove("pokaziHotel");
             div_hotel.classList.add("sokrienDiv");
         }
     }
-
-    // vaka bese pred 19.12.2020 
-
-    /* document.getElementById("newcontainer").style.display = "inline";
- 
-     containerdiv.innerHTML = "";
-     containerdiv.append(newcontainer);*/
-
-    // do tuka
-
 }
 
 function getCookie(cname) {
@@ -154,87 +137,154 @@ function funcSort() {
 
 }
 
-function funcFilter() {
+function funcFilter(nacinPovik) {
+
+    console.log("1. vleze vo funcFilter")
+
+    var preneseni_stars = document.getElementById("brojIzbraniZvezdi").innerHTML.toString();
+    var preneseni_dolars = document.getElementById("brojIzbraniDolari").innerHTML.toString();
+
+    console.log("2. preneseni stars = ")
+    console.log(preneseni_stars)
+    console.log("2. preneseni dollars = ")
+    console.log(preneseni_dolars)    
 
     var arrHotels = document.getElementsByClassName('oneHotel');
-    var arrNewHotels = [...arrHotels];
+    var arrLength = arrHotels.length;
+
+    console.log("3. arrHotels:")
+    console.log(arrHotels);
+    console.log("3. arrLength:")
+    console.log(arrLength)
+
+    if (nacinPovik === 1) {
+        console.log("povikana od body onload")
+    } else {
+        console.log("povikana onclick")
+    }
 
     var checkboxes = document.querySelectorAll('input[name="filtri"]:checked');
-    console.log(checkboxes)
 
-    var filters = [];
+    var vw_filters = [];        // vo vw_filters se site filtri od view
     checkboxes.forEach((checkbox) => {
-        filters.push(checkbox.value);
+        vw_filters.push(checkbox.value);
     });
-    console.log(filters);
-    for (var i = 0; i < filters.length; i++) {
 
-        var arrEmpty = [];
+    console.log("4. checkboxes:")
+    console.log(checkboxes)
+    console.log("4. vw_filters: ")
+    console.log(vw_filters)
+ 
+    var arr_rbr_hotel = [];
+
+    for (var i = 0; i < arrLength; i++) {
+
+        var ime_hotel = arrHotels[i].id;
+        arr_rbr_hotel.push(ime_hotel.substring(ime_hotel.lastIndexOf("_") + 1));
+    }
 
 
-        for (var j = 0; j < arrNewHotels.length; j++) {
-            //var distance = arrNewHotels[j].querySelector('span[class=distCenter1]');
-            //console.log(distance);
+    for (var i = 0; i < arrLength; i++) {  // gi vrti hotelite
 
+        var rbr_hotel = arr_rbr_hotel[i];
+        var div_hotel = document.getElementById("hotel_" + rbr_hotel);
 
-            if (filters[i] === "distCenter1") {
-                var distance = arrNewHotels[j].querySelector('span[class=distCenter1]');
-                var value = distance.innerHTML.toString();
+        var hotel_stars = div_hotel.querySelector('span[class=brStars]').textContent;
+        var hotel_dollars = div_hotel.querySelector('span[class=brPrice]').textContent;
 
-                if (value < "1") {
-                    arrEmpty.push(arrNewHotels[j]);
-                }
+        var FLAG_TRGNI_HOTEL = false;
+
+        // 1. Proverka za stars i dollars izbrani od home page
+        if (!FLAG_TRGNI_HOTEL) {
+
+            if (hotel_stars === preneseni_stars && hotel_dollars === preneseni_dolars) {
+
+                FLAG_TRGNI_HOTEL = false;
             }
-            else if (filters[i] === "distCenter2") {
-                var distance = arrNewHotels[j].querySelector('span[class=distCenter2]');
-                var value = distance.innerHTML.toString();
-
-                if (value < "2") {
-                    arrEmpty.push(arrNewHotels[j]);
-                }
-            }
-            else if (filters[i] === "distAirport") {
-                var distance = arrNewHotels[j].querySelector('span[class=distAirport]');
-                var value = distance.innerHTML.toString();
-
-                if (value < "25") {
-                    arrEmpty.push(arrNewHotels[j]);
-                }
-            }
-
             else {
-                const zz = arrNewHotels[j].querySelector('span[class=' + filters[i] + ']');
-                const zz2 = zz.querySelectorAll('input[class="check-box"]:checked');
-                if (zz2[0] != undefined) {
-                    arrEmpty.push(arrNewHotels[j]);
-                }
+                FLAG_TRGNI_HOTEL = true;
             }
         }
 
-        arrNewHotels = [];
-        arrNewHotels = [...arrEmpty];
+        // 2. Proverka za filtri
+        if (!FLAG_TRGNI_HOTEL) {
 
-    }
+            for (var j = 0; j < vw_filters.length; j++) { // gi vrti selektiranite filtri
 
-    var innerhtml = "";
+                // eden_filter_hotel primer: "parking"
+                const eden_filter_hotel = document.getElementById(vw_filters[j] + "_" + rbr_hotel)
 
-    for (var i = 0; i < arrNewHotels.length; i++) {
+                // specijalni slucai za distance od center i distance od airport, koi ne se bool-----------
 
-        innerhtml += arrNewHotels[i].innerHTML;
-    }
+                // izbraniot filter e ditance from center < 1 km
+                if (vw_filters[j] == "distCenter1") {
 
-    console.log("innerhtml:")
-    console.log(innerhtml)
+                    var distance = document.getElementById("distCenter1_" + rbr_hotel);
+                    var value_distance = parseFloat(distance.innerHTML.toString());
 
-    var newcontainerFilters = document.getElementById("newcontainerFilters");
-    newcontainerFilters.style.display = "inline";
+                    if (value_distance < 1) {
+                        FLAG_TRGNI_HOTEL = false;
+                        break;
+                    } else {
+                        FLAG_TRGNI_HOTEL = true;
+                    }
+                }
+                // izbraniot filter e ditance from center < 2 km
+                else if (vw_filters[j] == "distCenter2") {
 
-    newcontainer.innerHTML = "";
-    newcontainer.innerHTML = innerhtml;
+                    var distance = document.getElementById("distCenter2_" + rbr_hotel);
+                    var value_distance = parseFloat(distance.innerHTML.toString());
 
-    newcontainer.append(newcontainerFilters);
+                    if (value_distance < 2) {
+                        FLAG_TRGNI_HOTEL = false;
+                        break;
+                    } else {
+                        FLAG_TRGNI_HOTEL = true;
+                    }
+                }
+                // izbraniot filter e ditance from center < 1 km
+                else if (vw_filters[j] == "distAirport") {
+
+                    var distance = document.getElementById("distAirport_" + rbr_hotel);
+                    var value_distance = parseFloat(distance.innerHTML.toString());
+
+                    if (value_distance < 25) {
+                        FLAG_TRGNI_HOTEL = false;
+                        break;
+                    } else {
+                        FLAG_TRGNI_HOTEL = true;
+                    }
+                }
+                // kraj na specijalni slucai---------------------------------
+
+                // ova e za boolean
+                else {
+                    // eden_filter_hotel primer: "parking" dali go ima hotelot
+                    const eden_filter_hotel_checked = eden_filter_hotel.querySelectorAll('input[class="check-box"]:checked');
+
+                    if (eden_filter_hotel_checked[0] == undefined) {
+                        // ako vlegol ovde znaci deka go nema toj filter
+                        FLAG_TRGNI_HOTEL = true;
+                        break;
+                    }
+                } // end of else
+            } // end of for (var j = 0; j < vw_filters.length; j++)
+        } // end of if (!FLAG_TRGNI_HOTEL)
 
 
+
+        // trganje hotel
+        if (FLAG_TRGNI_HOTEL === true) {
+
+            div_hotel.classList.remove("pokaziHotel"); // pazi!!! ne smee da se referencira array so remove so classList
+            div_hotel.classList.add("sokrienDiv");
+
+        } else {
+            div_hotel.classList.remove("sokrienDiv");  // pazi!!! ne smee da se referencira array so remove so classList
+            div_hotel.classList.add("pokaziHotel");
+        }
+
+    } // end of for (var i = 0; i < arrLength; i++) {  // gi vrti hotelite
 }
 
 document.getElementById("idsubmit").addEventListener("click", function () {

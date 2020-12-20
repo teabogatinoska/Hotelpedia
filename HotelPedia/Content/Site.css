@@ -14,12 +14,7 @@ html, body {
     height: 100%
 }
 
-.sokrienDiv {
-    height: 0;
-    overflow: hidden;
-    padding: 0;
-    margin-bottom: 0;
-}
+
 
 
 .glavenDiv {
@@ -455,6 +450,16 @@ sortFilterContainer > #checkbox {
 .oneHotel {
     background-color: #fff;
     clear: both;
+}
+
+.sokrienDiv {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.pokaziHotel {
     height: 220px;
     padding: 20px;
     margin-bottom: 20px;

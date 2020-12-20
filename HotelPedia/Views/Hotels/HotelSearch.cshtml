@@ -15,7 +15,7 @@
 
     <div class="sortFilterContainer">
 
-        <input type="button" value="Filter" id="btnFilter" onclick="funcFilter()" />
+        <input type="button" value="Filter" id="btnFilter" onclick="funcFilter(2)" />
 
         <input type="button" value="Clear" id="btnClear" />
 
@@ -69,7 +69,7 @@
             </label>
             <label class="containerCheckbox">
                 Free cancellation
-                <input type="checkbox" name="filtri" value="cancellation">
+                <input type="checkbox" name="filtri" value="free_cancellation">
                 <span class="checkmark"></span>
             </label>
             <label class="containerCheckbox">
@@ -79,7 +79,7 @@
             </label>
             <label class="containerCheckbox">
                 Swimming pool
-                <input type="checkbox" name="filtri" value="pool">
+                <input type="checkbox" name="filtri" value="swimming_pool">
                 <span class="checkmark"></span>
             </label>
             <label class="containerCheckbox">
@@ -89,7 +89,7 @@
             </label>
             <label class="containerCheckbox">
                 Wheelchair accessible
-                <input type="checkbox" name="filtri" value="wheelchair">
+                <input type="checkbox" name="filtri" value="disabled_guest">
                 <span class="checkmark"></span>
             </label>
             <label class="containerCheckbox">
@@ -132,7 +132,7 @@
 
         @foreach (var item in Model)
         {
-            <div class="oneHotel" id="hotel_@Html.DisplayFor(modelItem => item.id)">
+            <div class="oneHotel pokaziHotel" id="hotel_@Html.DisplayFor(modelItem => item.id)">
 
                 <div class="divImg">
                     <img src="@Url.Content(item.image_url)" alt="image" class="imgHotel" />
@@ -157,30 +157,23 @@
                     }
                     <br>
                     <span>@Html.DisplayFor(modelItem => item.distance_center) km from center</span><br>
+
                     <span class="brPrice" style="font-style: italic; color: #E0B15E; display:none">@Html.DisplayFor(modelItem => item.price)</span><br><br>
 
-                    <span class="distCenter1" style="display:none">@Html.DisplayFor(modelItem => item.distance_center)</span>
+                    <span>
+                        <span id="breakfast_@Html.DisplayFor(modelItem => item.id)">breakfast: @Html.DisplayFor(modelItem => item.breakfast_included)</span>
+                        <span id="parking_@Html.DisplayFor(modelItem => item.id)">parking: @Html.DisplayFor(modelItem => item.parking)</span>
+                        <span id="free_cancellation_@Html.DisplayFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.free_cancellation)</span>
+                        <span id="wifi_@Html.DisplayFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.wifi)</span>
+                        <span id="swimming_pool_@Html.DisplayFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.swimming_pool)</span>
+                        <span id="smoking_@Html.DisplayFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.smoking)</span>
+                        <span id="disabled_guest_@Html.DisplayFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.disabled_guest)</span>
+                        <span id="pets_@Html.DisplayFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.pets)</span>
 
-                    <span class="distCenter2" style="display:none">@Html.DisplayFor(modelItem => item.distance_center)</span>
-
-                    <span class="distAirport" style="display:none">@Html.DisplayFor(modelItem => item.distance_airport)</span>
-
-                    <span class="breakfast" style="display:none">@Html.DisplayFor(modelItem => item.breakfast_included)</span>
-
-                    <span class="cancellation" style="font-size:20px; color:red;">@Html.DisplayFor(modelItem => item.free_cancellation)</span>
-
-                    <span class="pool" style="display:none">@Html.DisplayFor(modelItem => item.swimming_pool)</span>
-
-                    <span class="parking" style="display:none">@Html.DisplayFor(modelItem => item.parking)</span>
-
-                    <span class="wifi" style="display:none">@Html.DisplayFor(modelItem => item.wifi)</span>
-
-                    <span class="smoking" style="display:none">@Html.DisplayFor(modelItem => item.smoking)</span>
-
-                    <span class="disabled" style="display:none">@Html.DisplayFor(modelItem => item.disabled_guest)</span>
-
-                    <span class="pets" style="display:none">@Html.DisplayFor(modelItem => item.pets)</span>
-
+                        <span id="distCenter1_@Html.DisplayFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.distance_center)</span>
+                        <span id="distCenter2_@Html.DisplayFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.distance_center)</span>
+                        <span id="distAirport_@Html.DisplayFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.distance_airport)</span>
+                    </span>
 
 
                     <span>
