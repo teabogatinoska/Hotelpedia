@@ -515,3 +515,20 @@ sortFilterContainer > #checkbox {
     height: 20px;
     margin-top: 12px;
 }
+.about {
+    background: url("images/body-bg-marriott.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.aboutText {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    background-color: #E6E6E6;
+    width: 900px;
+    border: 2px solid #E0B15E;
+    padding: 30px;
+    margin-top: 100px;
+    margin-left: 300px;
+    text-align: justify;
+}
