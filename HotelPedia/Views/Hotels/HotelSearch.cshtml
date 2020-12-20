@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-<body onload="checkCookie()" id="bodyHotelSearch">
+<body onload="inicijalizacijaFunc()" id="bodyHotelSearch">
 
     <div class="sortFilterContainer">
 
@@ -141,10 +141,10 @@
 
                 <div class="divInfo">
 
-                    <span class="imeAngHotel"><b>@Html.DisplayFor(modelItem => item.name_ang)</b></span>
-                    <span class="imeMkHotel" style="display:none"><b>@Html.DisplayFor(modelItem => item.name_mk)</b></span>
+                    <span class="imeAngHotel" id="imeAngHotel_@Html.DisplayFor(modelItem => item.id)"><b>@Html.DisplayFor(modelItem => item.name_ang)</b></span>
+                    <span class="imeMkHotel" id="imeMkHotel_@Html.DisplayFor(modelItem => item.id)"style="display:none"><b>@Html.DisplayFor(modelItem => item.name_mk)</b></span>
                     <br />
-                    <span class="brStars" style="display:none">@Html.DisplayFor(modelItem => item.starsNum)</span>
+                    <span class="brStars" id="brStars_@Html.DisplayFor(modelItem => item.id)" style="display:none">@Html.DisplayFor(modelItem => item.starsNum)</span>
                     @{
                         var count = item.starsNum;
                     }
@@ -158,7 +158,7 @@
                     <br>
                     <span>@Html.DisplayFor(modelItem => item.distance_center) km from center</span><br>
 
-                    <span class="brPrice" style="font-style: italic; color: #E0B15E; display:none">@Html.DisplayFor(modelItem => item.price)</span><br><br>
+                    <span class="brPrice" id="brPrice_@Html.DisplayFor(modelItem => item.id)" style="font-style: italic; color: #E0B15E; display:none">@Html.DisplayFor(modelItem => item.price)</span><br><br>
 
                     <span>
                         <span id="breakfast_@Html.DisplayFor(modelItem => item.id)">breakfast: @Html.DisplayFor(modelItem => item.breakfast_included)</span>

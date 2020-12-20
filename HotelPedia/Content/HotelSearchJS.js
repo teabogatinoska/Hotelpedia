@@ -1,4 +1,5 @@
-﻿function checkCookie() {
+﻿
+function inicijalizacijaFunc() {
 
     var brStars = getCookie("numStars");
     var brDollars = getCookie("cookieDollars");
@@ -14,128 +15,10 @@
         var date = new Date();
         date.setTime(date.getTime() + (1 * 1000));
 
-        // getHotels();
         funcFilter(1);
     }
 }
 
-function getHotels() {
-
-    var preneseni_stars = document.getElementById("brojIzbraniZvezdi").innerHTML.toString();
-    var preneseni_dolars = document.getElementById("brojIzbraniDolari").innerHTML.toString();
-
-    var arrHotels = document.getElementsByClassName('oneHotel');
-
-    var arrLength = arrHotels.length;
-
-    for (var i = 1; i < arrLength + 1; i++) {
-
-        var div_hotel = document.getElementById("hotel_" + i)
-        var hotel_stars = div_hotel.querySelector('span[class=brStars]').textContent;
-        var hotel_dollars = div_hotel.querySelector('span[class=brPrice]').textContent;
-
-        if (hotel_stars === preneseni_stars && hotel_dollars === preneseni_dolars) {
-
-            div_hotel.classList.remove("sokrienDiv");
-            div_hotel.classList.add("pokaziHotel");
-        }
-        else {
-            div_hotel.classList.remove("pokaziHotel");
-            div_hotel.classList.add("sokrienDiv");
-        }
-    }
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-function setCookie(cname, cvalue) {
-    document.cookie = cname + "=" + cvalue + ";";
-
-}
-
-
-function funcSort() {
-
-    var arrHotels = document.getElementsByClassName('oneHotel');
-    var arrZaSort = [];
-
-    var sortOptions = document.getElementById('sortSelect');
-    var sortChoice = sortOptions.value;
-
-    for (var i = 0; i < arrHotels.length; i++) {
-
-        if (sortChoice === "most_stars") {
-            var child = arrHotels[i].querySelectorAll('.brStars');
-            var sorterBy = 0 - child[0].textContent;
-        }
-        else if (sortChoice === "least_stars") {
-            var child = arrHotels[i].querySelectorAll('.brStars');
-            var sorterBy = child[0].textContent;
-        }
-        else if (sortChoice === "lowest_price") {
-            var child = arrHotels[i].querySelectorAll('.brPrice');
-            var sorterBy = child[0].textContent;
-        }
-        else if (sortChoice === "highest_price") {
-            var child = arrHotels[i].querySelectorAll('.brPrice');
-            var sorterBy = 0 - child[0].textContent;
-        }
-        else if (sortChoice === "center_closest") {
-            var child = arrHotels[i].querySelectorAll('.distCenter');
-            var sorterBy = child[0].textContent;
-        }
-        else if (sortChoice === "airport_closest") {
-            var child = arrHotels[i].querySelectorAll('.distAirport');
-            var sorterBy = child[0].textContent;
-        }
-        else if (sortChoice === "az") {
-            var child = arrHotels[i].querySelectorAll('.imeAngHotel');
-            var sorterBy = child[0].textContent;
-        }
-        else {
-            var child = arrHotels[i].querySelectorAll('.imeAngHotel');
-            var sorterBy = child[0].textContent;
-        }
-
-        arrZaSort.push([sorterBy, arrHotels[i]]);
-    }
-
-    arrZaSort.sort(function (a, b) {
-
-        if (a[0] === b[0]) {
-            return 0;
-        }
-        else {
-            return (a[0] < b[0]) ? -1 : 1;
-        }
-
-    });
-
-    console.log(arrZaSort);
-
-    var hoteliContainer = document.getElementsByClassName("hoteliContainer")
-    var conteinerDiv = hoteliContainer[0]
-    conteinerDiv.innerHTML = ""
-
-    for (var i = 0; i < arrZaSort.length; i++) {
-        conteinerDiv.append(arrZaSort[i][1]);
-    }
-
-}
 
 function funcFilter(nacinPovik) {
 
@@ -147,7 +30,7 @@ function funcFilter(nacinPovik) {
     console.log("2. preneseni stars = ")
     console.log(preneseni_stars)
     console.log("2. preneseni dollars = ")
-    console.log(preneseni_dolars)    
+    console.log(preneseni_dolars)
 
     var arrHotels = document.getElementsByClassName('oneHotel');
     var arrLength = arrHotels.length;
@@ -174,7 +57,7 @@ function funcFilter(nacinPovik) {
     console.log(checkboxes)
     console.log("4. vw_filters: ")
     console.log(vw_filters)
- 
+
     var arr_rbr_hotel = [];
 
     for (var i = 0; i < arrLength; i++) {
@@ -287,6 +170,86 @@ function funcFilter(nacinPovik) {
     } // end of for (var i = 0; i < arrLength; i++) {  // gi vrti hotelite
 }
 
+
+
+function funcSort() {
+
+    var arrHotels = document.getElementsByClassName('oneHotel');
+    var arrZaSort = [];
+
+    var sortOptions = document.getElementById('sortSelect');
+    var sortChoice = sortOptions.value;
+
+    var ii = 0;
+
+    for (var i = 0; i < arrHotels.length; i++) {
+
+        ii = i + 1;
+
+        if (sortChoice === "most_stars") {
+
+            var child = document.getElementById("brStars_" + ii)
+
+            //var child = arrHotels[i].querySelectorAll('.brStars');
+            
+            var sorterBy = 0 - child.innerHTML;
+        }
+        else if (sortChoice === "least_stars") {
+            var child = document.getElementById("brStars_" + ii)
+            var sorterBy = child.innerHTML;
+        }
+        else if (sortChoice === "lowest_price") {
+            var child = document.getElementById("brPrice_" + ii)
+            var sorterBy = child.innerHTML;
+        }
+        else if (sortChoice === "highest_price") {
+            var child = document.getElementById("brPrice_" + ii)
+            var sorterBy = 0 - child.innerHTML;
+        }
+        else if (sortChoice === "center_closest") {
+            var child = document.getElementById("distCenter1_" + ii)
+            var sorterBy = child.innerHTML;
+        }
+        else if (sortChoice === "airport_closest") {
+            var child = document.getElementById("distAirport_" + ii)
+            var sorterBy = child.innerHTML;
+        }
+        else if (sortChoice === "az") {
+            var child = document.getElementById("imeAngHotel_" + ii)
+            var sorterBy = child.innerHTML;
+        }
+        else {
+            var child = document.getElementById("imeAngHotel_" + ii)
+            var sorterBy = child.innerHTML;
+        }
+
+        arrZaSort.push([sorterBy, arrHotels[i]]);
+    }
+
+    arrZaSort.sort(function (a, b) {
+
+        if (a[0] === b[0]) {
+            return 0;
+        }
+        else {
+            return (a[0] < b[0]) ? -1 : 1;
+        }
+
+    });
+
+    console.log(arrZaSort);
+
+    var hoteliContainer = document.getElementsByClassName("hoteliContainer")
+    var conteinerDiv = hoteliContainer[0]
+    conteinerDiv.innerHTML = ""
+
+    for (var i = 0; i < arrZaSort.length; i++) {
+        conteinerDiv.append(arrZaSort[i][1]);
+    }
+
+}
+
+
 document.getElementById("idsubmit").addEventListener("click", function () {
 
     var arrHotels = document.getElementsByClassName('oneHotel');
@@ -320,3 +283,25 @@ document.getElementById("idsubmit").addEventListener("click", function () {
     newcontainer.append(newcontainerFilters);
 
 });
+
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue + ";";
+
+}
