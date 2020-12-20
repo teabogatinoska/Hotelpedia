@@ -15,8 +15,24 @@ function inicijalizacijaFunc() {
         var date = new Date();
         date.setTime(date.getTime() + (1 * 1000));
 
+        var zvezdi = document.getElementById("brojIzbraniZvezdi").innerHTML;
+        var starsContainer = document.getElementById('stars');
+        var checkboxes = starsContainer.querySelectorAll('span');
+        for (var i = 4; i > zvezdi-1; i--) {
+
+           checkboxes[i].classList.add('nevidliva');
+           }
+        var dolari = document.getElementById("brojIzbraniDolari").innerHTML;
+        var dollarsContainer = document.getElementById('dollarz');
+        var checkDollar = dollarsContainer.querySelectorAll('span');
+        for (var i = 2; i > dolari - 1; i--) {
+
+            checkDollar[i].classList.add('nevidliva');
+        }
+        
         funcFilter(1);
     }
+
 }
 
 

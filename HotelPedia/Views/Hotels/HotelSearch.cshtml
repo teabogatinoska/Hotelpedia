@@ -13,48 +13,38 @@
 </head>
 <body onload="inicijalizacijaFunc()" id="bodyHotelSearch">
 
+
     <div class="sortFilterContainer">
 
-        <input type="button" value="Filter" id="btnFilter" onclick="funcFilter(2)" />
-
-        <input type="button" value="Clear" id="btnClear" />
-
-        <label for="sortSelect">Sort by:</label>
-        <select id="sortSelect" name="sortSelect" onchange="funcSort()">
-            <option value="most_stars">Most stars</option>
-            <option value="least_stars">Least stars</option>
-            <option value="lowest_price">Lowest price</option>
-            <option value="highest_price">Highest price</option>
-            <option value="center_closest">Closest to center</option>
-            <option value="airport_closest">Closest to airport</option>
-            <option value="az">A-Z</option>
-        </select>
 
 
-        <input type="text" placeholder="Search.." name="search" id="searchinput">
-        <button type="submit" id="idsubmit"><i class="fa fa-search"></i></button>
-
-
+        <input type="button" value="Clear" id="btnClear" style="display: none" />
 
         <br>
 
-        <div>Br zvezdi:</div>
-        <div id="brojIzbraniZvezdi"></div>
+        <div id="brojIzbraniZvezdi" style="display:none"></div>
 
-        <div>
-            Br dolari:
-        </div>
-        <div id="brojIzbraniDolari"></div>
+        <div id="brojIzbraniDolari" style="display:none"></div>
 
 
-        <span id="stars">
-            <span>$ $ $ fiksni treba da se smenat </span>
+
+
+        <span id="dollarz" style="text-align: left">
+            <span class="dollarz1">$</span>
+            <span class="dollarz1">$</span>
+            <span class="dollarz1">$</span>
+        </span>
+        <br />
+        <span id="stars" style="text-align: left">
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
         </span>
+       
+       <input type="button" value="Filter" class="btnSearch btnSearch2" id="btnFilter" onclick="funcFilter(2)" />
+       
         <div id="checkbox">
 
             <label class="containerCheckbox">
@@ -118,11 +108,26 @@
                 <input type="checkbox" name="filtri" value="distAirport">
                 <span class="checkmark"></span>
             </label>
-
+            <br/>
         </div>
 
 
     </div>
+
+
+    <select id="sortSelect" name="sortSelect" onchange="funcSort()">
+        <option value="">Sort by</option>
+        <option value="most_stars">Most stars</option>
+        <option value="least_stars">Least stars</option>
+        <option value="lowest_price">Lowest price</option>
+        <option value="highest_price">Highest price</option>
+        <option value="center_closest">Closest to center</option>
+        <option value="airport_closest">Closest to airport</option>
+        <option value="az">A-Z</option>
+    </select>
+
+    <input type="text" placeholder="Search by name" name="search" id="searchinput">
+    <button type="submit" id="idsubmit"><i class="fa fa-search"></i></button>
 
     <div class="hoteliContainer">
 
@@ -142,7 +147,7 @@
                 <div class="divInfo">
 
                     <span class="imeAngHotel" id="imeAngHotel_@Html.DisplayFor(modelItem => item.id)"><b>@Html.DisplayFor(modelItem => item.name_ang)</b></span>
-                    <span class="imeMkHotel" id="imeMkHotel_@Html.DisplayFor(modelItem => item.id)"style="display:none"><b>@Html.DisplayFor(modelItem => item.name_mk)</b></span>
+                    <span class="imeMkHotel" id="imeMkHotel_@Html.DisplayFor(modelItem => item.id)" style="display:none"><b>@Html.DisplayFor(modelItem => item.name_mk)</b></span>
                     <br />
                     <span class="brStars" id="brStars_@Html.DisplayFor(modelItem => item.id)" style="display:none">@Html.DisplayFor(modelItem => item.starsNum)</span>
                     @{
@@ -160,7 +165,7 @@
 
                     <span class="brPrice" id="brPrice_@Html.DisplayFor(modelItem => item.id)" style="font-style: italic; color: #E0B15E; display:none">@Html.DisplayFor(modelItem => item.price)</span><br><br>
 
-                    <span>
+                    <span style="display:none">
                         <span id="breakfast_@Html.DisplayFor(modelItem => item.id)">breakfast: @Html.DisplayFor(modelItem => item.breakfast_included)</span>
                         <span id="parking_@Html.DisplayFor(modelItem => item.id)">parking: @Html.DisplayFor(modelItem => item.parking)</span>
                         <span id="free_cancellation_@Html.DisplayFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.free_cancellation)</span>
