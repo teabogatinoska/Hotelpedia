@@ -132,7 +132,7 @@
 
         @foreach (var item in Model)
         {
-            <div class="oneHotel">
+            <div class="oneHotel" id="hotel_@Html.DisplayFor(modelItem => item.id)">
 
                 <div class="divImg">
                     <img src="@Url.Content(item.image_url)" alt="image" class="imgHotel" />

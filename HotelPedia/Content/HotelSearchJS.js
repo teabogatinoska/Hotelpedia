@@ -20,30 +20,46 @@
 
 function getHotels() {
 
-    var stars = document.getElementById("brojIzbraniZvezdi");
-    var dolars = document.getElementById("brojIzbraniDolari");
+    var preneseni_stars = document.getElementById("brojIzbraniZvezdi").innerHTML.toString();
+    var preneseni_dolars = document.getElementById("brojIzbraniDolari").innerHTML.toString();
 
     var arrHotels = document.getElementsByClassName('oneHotel');
 
-    var arrNewHotels = [...arrHotels];
+//    var arrNewHotels = [...arrHotels];
 
-    var hotelStars = document.getElementsByClassName('brStars');
-    var hotelDolars = document.getElementsByClassName("brPrice");
+//    var hotelStars = document.getElementsByClassName('brStars');
+//    var hotelDolars = document.getElementsByClassName("brPrice");
 
-    var containerdiv = document.getElementsByClassName("hoteliContainer")[0];
-    var newcontainer = document.getElementById("newcontainer");
+//    var containerdiv = document.getElementsByClassName("hoteliContainer")[0];
+//    var newcontainer = document.getElementById("newcontainer");
 
-    for (var i = 0; i < arrNewHotels.length; i++) {
+    var arrLength = arrHotels.length;
 
-        if (hotelStars[i].innerHTML.toString() === stars.innerHTML.toString() && hotelDolars[i].innerHTML.toString() === dolars.innerHTML.toString()) {
-            newcontainer.append(arrNewHotels[i]);
+    for (var i = 1; i < arrLength + 1; i++) {
+
+        var div_hotel = document.getElementById("hotel_" + i)
+        var hotel_stars = div_hotel.querySelector('span[class=brStars]').textContent;
+        var hotel_dollars = div_hotel.querySelector('span[class=brPrice]').textContent;
+
+        if (hotel_stars === preneseni_stars && hotel_dollars === preneseni_dolars) {
+
+            div_hotel.classList.remove("sokrienDiv");
+            div_hotel.classList.add("oneHotel");
+        }
+        else {
+            div_hotel.classList.remove("oneHotel");
+            div_hotel.classList.add("sokrienDiv");
         }
     }
 
-    document.getElementById("newcontainer").style.display = "inline";
+    // vaka bese pred 19.12.2020 
 
-    containerdiv.innerHTML = "";
-    containerdiv.append(newcontainer);
+    /* document.getElementById("newcontainer").style.display = "inline";
+ 
+     containerdiv.innerHTML = "";
+     containerdiv.append(newcontainer);*/
+
+    // do tuka
 
 }
 
@@ -139,7 +155,7 @@ function funcSort() {
 }
 
 function funcFilter() {
-    
+
     var arrHotels = document.getElementsByClassName('oneHotel');
     var arrNewHotels = [...arrHotels];
 
